@@ -178,13 +178,86 @@ footer {
   color: #888;
 }
 
+.service-banners {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-banners a img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  filter: brightness(1);
+  max-width: 150px;
+  width: 100%;
+}
+
+.service-banners a:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.2);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: #00bfff;
+  z-index: 10000;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
-  .service-banners a img {
-    max-width: 120px;
+  .service-banners {
+    gap: 15px;
   }
+
+  .service-banners a img {
+    max-width: 100px; /* Larger size for mobile */
+  }
+
+  #scroll-to-top {
+    padding: 12px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    padding-top: 60px;
+    z-index: 9999;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  nav a {
+    padding: 15px;
+    color: #00bfff;
+    text-align: center;
+  }
+
   .hero {
     padding-top: 20px;
   }
+
   .hero button {
     padding: 15px;
   }
@@ -193,4 +266,29 @@ footer {
 #scroll-to-top.show {
   opacity: 1;
   visibility: visible;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #00bfff, #1e90ff, #00bfff);
+  background-size: 300% 100%;
+  animation: progressGlow 3s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes progressGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+#particles-js {
+  filter: blur(1px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
