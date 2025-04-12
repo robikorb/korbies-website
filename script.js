@@ -2,8 +2,8 @@ import Lenis from 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.21/bun
 
 // Smooth scrolling with Lenis.js
 const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  duration: 1.0,  // Reduce duration for faster, snappier scrolling
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -8 * t)),  // Smoother easing function
   smooth: true,
   smoothTouch: true,
   direction: 'vertical'
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sections = document.querySelectorAll('.service-section');
 
-  sections.forEach(section => {
+  sections.forEach((section, index) => {
     const image = section.querySelector('img');
     const content = section.querySelector('.service-content');
 
@@ -37,12 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
       pin: true,
       pinSpacing: false,
       scrub: true,
+      once: true, // Ensure it activates only once
     });
 
     // Parallax effect for images
     if (image) {
       gsap.to(image, {
-        yPercent: -30,
+        yPercent: -10,  // Reduce parallax intensity
         ease: "none",
         scrollTrigger: {
           trigger: section,
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
           autoAlpha: 1,
           y: 0,
           scale: 1,
-          duration: 1.5,
+          duration: 1.2,  // Reduced duration for faster transitions
           ease: "power2.out",
           scrollTrigger: {
             trigger: section,
@@ -85,5 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
         lenis.scrollTo(targetSection, { offset: 0, duration: 1.5 });
       }
     });
+  });
+  
+  // Scroll-to-top button logic
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight) {  // Only show after scrolling down a bit
+      scrollToTopButton.classList.add('show');
+    } else {
+      scrollToTopButton.classList.remove('show');
+    }
   });
 });
