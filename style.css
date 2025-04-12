@@ -177,3 +177,20 @@ footer {
   padding: 20px;
   color: #888;
 }
+
+@media (max-width: 768px) {
+  .service-banners a img {
+    max-width: 120px;
+  }
+  .hero {
+    padding-top: 20px;
+  }
+  .hero button {
+    padding: 15px;
+  }
+}
+
+#scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
