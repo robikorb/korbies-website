@@ -1,43 +1,86 @@
+import Lenis from 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.21/bundled/lenis.min.js';
+
+// Smooth scrolling with Lenis.js
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smooth: true,
+  smoothTouch: true,
+  direction: 'vertical'
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+// GSAP Animations
 document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Sync Lenis with ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+
   const sections = document.querySelectorAll('.service-section');
-  const navLinks = document.querySelectorAll('nav a');
-
-  // Intersection Observer for sections
-  const observerOptions = {
-    root: null,
-    threshold: 0.5,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-
-        // Update nav highlight
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href').substring(1) === entry.target.id) {
-            link.classList.add('active');
-          }
-        });
-      } else {
-        entry.target.classList.remove('active');
-      }
-    });
-  }, observerOptions);
 
   sections.forEach(section => {
-    observer.observe(section);
+    const image = section.querySelector('img');
+    const content = section.querySelector('.service-content');
+
+    // Pin section and fade in content
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: '+=100%',
+      pin: true,
+      pinSpacing: false,
+      scrub: true,
+    });
+
+    if (image) {
+      gsap.to(image, {
+        yPercent: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+    }
+
+    if (content) {
+      gsap.fromTo(content,
+        { autoAlpha: 0, y: 50, scale: 0.95 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+          }
+        }
+      );
+    }
   });
 
-  // Smooth scroll for nav links
+  // Smooth nav links
+  const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1);
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+        lenis.scrollTo(targetSection, { offset: 0, duration: 1.5 });
       }
     });
   });
