@@ -256,3 +256,46 @@
       width: 100%;
     }
   }
+
+/* === Smooth Scrolling Full Sections === */
+.service-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-section h2 {
+  font-size: 2.5rem;
+  color: #00bfff;
+  text-shadow: 0 0 20px #00bfff;
+  margin-bottom: 20px;
+}
+
+.service-section p {
+  max-width: 800px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Active section styling */
+.service-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adjust nav for scroll experience */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
