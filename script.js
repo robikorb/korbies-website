@@ -2,47 +2,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.service-section');
   const navLinks = document.querySelectorAll('nav a');
 
-  // Force activate the first section on page load
-  const firstSection = document.querySelector('.service-section');
-  if (firstSection) {
-    firstSection.classList.add('active');
-  }
+  // Intersection Observer for sections
+  const observerOptions = {
+    root: null,
+    threshold: 0.5,
+  };
 
-  function activateSection() {
-    const scrollPos = window.scrollY + window.innerHeight / 2;
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = window.scrollY + rect.top;
-      const sectionHeight = section.offsetHeight;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
 
-      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-        section.classList.add('active');
+        // Update nav highlight
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === entry.target.id) {
+            link.classList.add('active');
+          }
+        });
       } else {
-        section.classList.remove('active');
+        entry.target.classList.remove('active');
       }
     });
-  }
+  }, observerOptions);
 
-  function updateNavHighlight() {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - window.innerHeight / 2;
-      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) link.classList.add('active');
-    });
-  }
-
-  window.addEventListener('scroll', () => {
-    activateSection();
-    updateNavHighlight();
+  sections.forEach(section => {
+    observer.observe(section);
   });
-
-  // Initial activation
-  activateSection();
-  updateNavHighlight();
 
   // Smooth scroll for nav links
   navLinks.forEach(link => {
