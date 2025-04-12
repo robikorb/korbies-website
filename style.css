@@ -1,0 +1,258 @@
+/* === Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* === Navigation === */
+  nav {
+    background: rgba(15, 32, 39, 0.95);
+    padding: 15px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 191, 255, 0.2);
+  }
+  
+  nav a {
+    margin: 0 15px;
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  nav a:hover,
+  nav a.active {
+    color: #ffffff;
+  }
+  
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: #00bfff;
+  }
+  
+  /* === Hero Section === */
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .hero img {
+    width: 250px;
+    max-width: 90%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px #00bfff);
+  }
+  
+  .hero button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    background: #00bfff;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px #00bfff;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .hero button:hover {
+    background: #009acd;
+    transform: scale(1.05);
+  }
+  
+  .scroll-indicator {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: #00bfff;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  
+  /* === Services Section === */
+  #services {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  #services h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #00bfff;
+    text-shadow: 0 0 20px #00bfff;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
+  }
+  
+  .service-item img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    display: block;
+  }
+  
+  .service-item p {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+  
+  /* === Expertise Section === */
+  #details {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  #details h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #00bfff;
+  }
+  
+  .detail-item {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+  }
+  
+  .detail-item h3 {
+    color: #00bfff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .detail-item p {
+    opacity: 0.85;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* === Contact Section === */
+  .contact {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00bfff;
+  }
+  
+  .contact form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact input,
+  .contact textarea {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  .contact input::placeholder,
+  .contact textarea::placeholder {
+    color: #bbb;
+  }
+  
+  .contact button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    background: #00bfff;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px #00bfff;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .contact button:hover {
+    background: #009acd;
+    transform: scale(1.05);
+  }
+  
+  /* === Footer === */
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-size: 0.85rem;
+  }
+  
+  /* === Responsive Improvements === */
+  @media (max-width: 768px) {
+    nav a {
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
+  
+    .hero img {
+      width: 180px;
+    }
+  
+    .services-grid {
+      gap: 20px;
+    }
+  
+    .contact form {
+      width: 100%;
+    }
+  }
