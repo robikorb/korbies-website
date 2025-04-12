@@ -16,7 +16,7 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// GSAP Animations
+// GSAP Animations and ScrollTrigger setup
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrub: true,
     });
 
+    // Parallax effect for images
     if (image) {
       gsap.to(image, {
         yPercent: -30,
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Fade and slide-in effect for content
     if (content) {
       gsap.fromTo(content,
         { autoAlpha: 0, y: 50, scale: 0.95 },
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Smooth nav links
+  // Smooth scroll for nav links
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
