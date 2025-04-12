@@ -29,14 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Important: Trigger on load as well as scroll
   window.addEventListener('scroll', () => {
     activateSection();
     updateNavHighlight();
   });
 
-  // Initial activation
-  activateSection();
-  updateNavHighlight();
+  window.addEventListener('load', () => {
+    activateSection();
+    updateNavHighlight();
+  });
+
+  window.addEventListener('resize', () => {
+    activateSection();
+    updateNavHighlight();
+  });
 
   // Smooth scroll for nav links
   navLinks.forEach(link => {
