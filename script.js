@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.service-section');
   const navLinks = document.querySelectorAll('nav a');
 
+  // Force activate the first section on page load
+  const firstSection = document.querySelector('.service-section');
+  if (firstSection) {
+    firstSection.classList.add('active');
+  }
+
   function activateSection() {
     const scrollPos = window.scrollY + window.innerHeight / 2;
     sections.forEach(section => {
@@ -29,21 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Important: Trigger on load as well as scroll
   window.addEventListener('scroll', () => {
     activateSection();
     updateNavHighlight();
   });
 
-  window.addEventListener('load', () => {
-    activateSection();
-    updateNavHighlight();
-  });
-
-  window.addEventListener('resize', () => {
-    activateSection();
-    updateNavHighlight();
-  });
+  // Initial activation
+  activateSection();
+  updateNavHighlight();
 
   // Smooth scroll for nav links
   navLinks.forEach(link => {
