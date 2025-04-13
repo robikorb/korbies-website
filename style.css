@@ -128,6 +128,43 @@ form .btn {
     margin-bottom: 1rem;
     animation: fadeInUp 1.8s ease-out;
   }
+
+  /* Services Section Mobile Animations */
+  #services .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .service-card {
+    animation: fadeInUp 1s ease-out;
+    margin-bottom: 20px;
+  }
+
+  .service-card img {
+    animation: fadeInDown 1s ease-out;
+  }
+
+  /* Contact Section Mobile Animations */
+  #contact .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  #contact h2 {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  #contact p {
+    animation: fadeInUp 1.2s ease-out;
+  }
+
+  #contact form {
+    animation: fadeInUp 1.4s ease-out;
+  }
+
+  #contact .btn {
+    animation: fadeInUp 1.6s ease-out;
+  }
 }
 
 /* Animations */
