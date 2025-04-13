@@ -79,6 +79,29 @@ body {
     .hero p {
       font-size: 1rem;
     }
+  
+    #about .container {
+      text-align: center;
+    }
+
+    #about .text-start {
+      text-align: center !important;
+      margin-bottom: 1.5rem;
+    }
+
+    #about .btn {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    #about h4 {
+      margin-top: 1.5rem;
+    }
+
+    #about ul {
+      padding-left: 0;
+      list-style-position: inside;
+    }
   }
 
 [data-scroll-container] {
