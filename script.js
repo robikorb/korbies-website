@@ -396,3 +396,38 @@ document.querySelectorAll('button, a').forEach(button => {
     }, 800);
   });
 });
+
+// Cookie Consent Banner
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cookieConsent')) {
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.style.position = 'fixed';
+    banner.style.bottom = '20px';
+    banner.style.right = '20px';
+    banner.style.background = 'rgba(0, 0, 0, 0.8)';
+    banner.style.color = '#fff';
+    banner.style.padding = '15px 20px';
+    banner.style.borderRadius = '8px';
+    banner.style.zIndex = '99999';
+    banner.style.maxWidth = '300px';
+    banner.style.boxShadow = '0 0 20px rgba(0,195,255,0.5)';
+    banner.style.fontSize = '0.9rem';
+    banner.style.lineHeight = '1.4';
+
+    banner.innerHTML = `
+      <p>We use cookies to ensure you get the best experience. <a href="/privacy-policy.html" style="color: #00c3ff; text-decoration: underline;">Learn more</a></p>
+      <button style="margin-top: 8px; background: #00c3ff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">Accept</button>
+    `;
+
+    document.body.appendChild(banner);
+
+    const acceptButton = banner.querySelector('button');
+    acceptButton.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'true');
+      banner.style.transition = 'opacity 0.5s ease';
+      banner.style.opacity = '0';
+      setTimeout(() => banner.remove(), 500);
+    });
+  }
+});
