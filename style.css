@@ -1,5 +1,16 @@
 /* Custom Styles for Korbies Tech */
 
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  z-index: 9999;
+  transition: width 0.25s ease-out;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
@@ -15,6 +26,7 @@ body {
     align-items: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     background-attachment: fixed;
+    transition: background 0.5s ease;
 }
   
 .hero h1 {
@@ -70,6 +82,18 @@ form .form-control {
 form .btn {
     border-radius: 0.375rem;
     padding: 0.6rem 2rem;
+    transition: all 0.3s ease;
+}
+
+button,
+.btn {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #backToTop {
