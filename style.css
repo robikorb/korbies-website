@@ -76,13 +76,38 @@ form .btn {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #backToTop.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+#backToTop svg {
+  width: 24px;
+  height: 24px;
+}
   
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
