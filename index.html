@@ -92,16 +92,24 @@
       transition: opacity 0.4s ease, transform 0.3s ease;
       z-index: 9999;
       font-size: 1.5rem;
+    transform: translateZ(0); /* ensure hardware acceleration for floating effect */
+    animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 195, 255, 0.5); }
+      50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 195, 255, 0.7); }
+      100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 195, 255, 0.5); }
     }
 
     #backToTop.show {
       opacity: 1;
       pointer-events: auto;
-      transform: scale(1);
+      transform: translateZ(0) scale(1);
     }
 
     #backToTop:hover {
-      transform: scale(1.1);
+      transform: translateZ(0) scale(1.1);
       box-shadow: 0 0 15px rgba(0, 195, 255, 0.7), 0 0 30px rgba(0, 195, 255, 0.5);
     }
 
@@ -344,7 +352,7 @@
     <p class="mb-0">&copy; 2025 Korbies Tech. All rights reserved.</p>
   </footer>
 
-  <button id="backToTop" class="show">↑</button>
+  <button id="backToTop">↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- AOS JS -->
