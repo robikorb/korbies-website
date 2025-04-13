@@ -1,4 +1,20 @@
-/* Custom Styles for Korbies Tech */
+/* Performance optimizations and meta enhancements */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img[loading="lazy"] {
+  filter: blur(5px);
+  transition: filter 0.5s ease-out;
+}
+
+img[loading="lazy"]:not([src=""]) {
+  filter: blur(0);
+}
 
 #scrollProgress {
   position: fixed;
@@ -96,6 +112,14 @@ button:hover,
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0dcaf0;
+}
+
 #backToTop {
   opacity: 0;
   transform: translateY(20px);
@@ -122,6 +146,11 @@ button:hover,
 #backToTop svg {
   width: 24px;
   height: 24px;
+  transition: transform 0.3s ease;
+}
+
+#backToTop:hover svg {
+  transform: translateY(-2px);
 }
   
 html {
