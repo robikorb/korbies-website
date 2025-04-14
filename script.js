@@ -25,11 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(cursor);
   }
 
-  if (window.innerWidth < 768) {
-    if (cursor) cursor.style.display = 'none';
-    return; // Stop cursor initialization on mobile
-  }
-
   let mouseX = 0, mouseY = 0;
 
   document.addEventListener('mousemove', e => {
