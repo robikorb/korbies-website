@@ -222,8 +222,10 @@ section {
 
 .service-hover img {
   width: 100%;
+  max-width: 220px;
   height: auto;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  margin: 0 auto;
+  display: block;
 }
 
 .service-hover:hover {
@@ -326,9 +328,10 @@ footer {
   }
 
   .service-hover img {
-    width: 150%;
-    max-width: none;
-    transform: scale(1.2); /* Slight zoom effect */
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    transform: none;
   }
 
   .hero p {
