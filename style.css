@@ -5,7 +5,7 @@ html {
 
 html, body {
   background-color: #0b1f33;
-  background-image: url('images/banner.png');
+  background-image: url('./Images/banner.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -30,8 +30,6 @@ body {
   color: #fff;
   overflow-x: hidden;
   position: relative;
-  background: url('images/banner.png') no-repeat center center fixed;
-  background-size: cover;
   background-color: #0b1f33;
 }
 
@@ -68,7 +66,7 @@ img {
   transform: translate(-50%, -50%);
   transition: opacity 0.25s ease;
   opacity: 0.7;
-  z-index: 999999; /* Increase to ensure it's always on top */
+  z-index: 9999999; /* Increase to ensure it's always on top */
   will-change: transform;
 }
 
@@ -230,7 +228,7 @@ section + section {
 
 .service-hover img {
   width: 100%;
-  max-width: 220px;
+  max-width: 300px;
   height: auto;
   margin: 0 auto;
   display: block;
@@ -330,6 +328,7 @@ footer {
     box-shadow: 0 -4px 15px rgba(0, 195, 255, 0.3);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
+    margin: 0 10px;
   }
 
   .services-grid {
@@ -343,7 +342,7 @@ footer {
   }
 
   .service-hover img {
-    width: 260px;
+    width: 320px;
     max-width: 100%;
     height: auto;
     transform: none;
@@ -390,7 +389,7 @@ footer {
   height: 4px;
   background: #00c3ff;
   width: 0%;
-  z-index: 999;
+  z-index: 9999;
 }
 
 header::after {
@@ -468,6 +467,7 @@ header::after {
   animation: fadeIn 0.8s ease-out;
   box-shadow: 0 -4px 15px rgba(0, 195, 255, 0.3);
   pointer-events: auto; /* ensure it captures pointer */
+  margin: 0 10px;
 }
 
 .cookie-banner p {
@@ -497,7 +497,7 @@ header::after {
 
 .cookie-banner button:hover {
   background: rgba(0, 195, 255, 1);
-  box-shadow: 0 0 20px #00c3ff, 0 0 40px #00c3ff;
+  box-shadow: 0 0 25px #00c3ff, 0 0 50px #00c3ff;
   transform: translateY(-2px);
 }
 
