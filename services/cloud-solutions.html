@@ -102,12 +102,19 @@
 
     .feature-item {
       align-items: center;
+      margin-bottom: 40px; /* Increased spacing */
     }
 
     .feature-item img {
-      width: 80px;
+      width: 100%;
+      max-width: 300px; /* Consistent image size */
       height: auto;
-      margin-right: 20px;
+      margin-bottom: 20px; /* Spacing below images */
+      transition: transform 0.3s; /* Optional hover effect */
+    }
+
+    .feature-item img:hover {
+      transform: scale(1.05); /* Optional hover effect */
     }
 
     .container {
@@ -187,7 +194,8 @@
       }
 
       .feature-item img {
-        width: 60px;
+        width: 100%; /* Responsive */
+        max-width: 200px; /* Adjusted for smaller screens */
       }
 
       .cta-section .btn {
