@@ -326,10 +326,9 @@ footer {
   }
 
   .service-hover img {
-    width: 100%; /* Full width image for mobile */
-    margin: 0 auto;
-    display: block;
-    transform: scale(1.1); /* Slight zoom effect */
+    width: 150%;
+    max-width: none;
+    transform: scale(1.2); /* Slight zoom effect */
   }
 
   .hero p {
