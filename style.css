@@ -21,12 +21,12 @@ html, body {
 }
 
 body, a, button, input, textarea, select, label {
-  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  font-family: 'Orbitron', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   cursor: none !important;
 }
 
 body {
-  font-family: 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
   overflow-x: hidden;
   position: relative;
@@ -34,7 +34,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  font-family: 'Orbitron', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 0.5px;
   background: linear-gradient(to right, #00c3ff, #7f00ff);
   -webkit-background-clip: text;
@@ -126,7 +126,7 @@ nav a {
 }
 
 nav a, .navbar-brand {
-  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  font-family: 'Orbitron', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 nav a:hover {
@@ -490,7 +490,7 @@ header::after {
   margin-left: 10px;
   border-radius: 30px;
   cursor: pointer;
-  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  font-family: 'Orbitron', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: background 0.3s ease, transform 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
 }
