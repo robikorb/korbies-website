@@ -1,3 +1,5 @@
+let cursor;
+
 document.addEventListener('DOMContentLoaded', () => {
   // Page loader
   const loader = document.createElement('div');
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(loader);
 
   // Custom Cursor Init — inside DOMContentLoaded
-  let cursor = document.querySelector('.custom-cursor');
+  cursor = document.querySelector('.custom-cursor');
 
   if (!cursor) {
     cursor = document.createElement('div');
@@ -90,11 +92,15 @@ if (header) {
 
 // Ensure cursor position on first interaction
 document.addEventListener('mousedown', () => {
-  cursor.style.transition = 'transform 0.1s ease';
-  cursor.style.transform += ' scale(0.8)';
+  if (cursor) {
+    cursor.style.transition = 'transform 0.1s ease';
+    cursor.style.transform += ' scale(0.8)';
+  }
 });
 document.addEventListener('mouseup', () => {
-  cursor.style.transform = cursor.style.transform.replace(' scale(0.8)', '');
+  if (cursor) {
+    cursor.style.transform = cursor.style.transform.replace(' scale(0.8)', '');
+  }
 });
 
 // Loader spin animation
