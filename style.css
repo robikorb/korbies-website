@@ -5,9 +5,14 @@ html, body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.cloud-hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
 }
