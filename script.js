@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loader.style.alignItems = 'center';
   loader.style.justifyContent = 'center';
   loader.style.zIndex = 99999;
-  loader.innerHTML = '<img src="https://msp.korbies.uk/Images/logo.png" alt="Loading..." style="width: 80px; height: auto; animation: fadeLogo 1.5s ease-in-out infinite;">';
+  loader.innerHTML = '<img src="images/logo.png" alt="Loading..." style="width: 80px; height: auto; animation: fadeLogo 1.5s ease-in-out infinite;">';
   document.body.appendChild(loader);
 
   // Custom Cursor Init — inside DOMContentLoaded
