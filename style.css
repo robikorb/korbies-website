@@ -38,6 +38,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', 'Exo 2', sans-serif;
   letter-spacing: 0.5px;
+  background: linear-gradient(to right, #00c3ff, #7f00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 <button id="backToTop" title="Back to Top">↑</button>
@@ -51,6 +54,7 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  loading: lazy;
 }
 
 /* Custom Cursor */
@@ -204,6 +208,10 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+section + section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Services Grid */
 .services-grid {
   display: grid;
@@ -236,6 +244,7 @@ section {
 .service-hover:hover img {
   transform: scale(1.1) rotate(1deg);
   filter: brightness(1.2);
+  box-shadow: 0 0 20px rgba(0, 195, 255, 0.7);
 }
 
 /* Footer */
@@ -288,6 +297,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+
   .hero h1 {
     font-size: 2.4rem; /* Slightly bigger heading */
   }
@@ -315,6 +328,8 @@ footer {
     border-top: 2px solid #00c3ff;
     animation: fadeIn 0.8s ease-out;
     box-shadow: 0 -4px 15px rgba(0, 195, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
   }
 
   .services-grid {
@@ -328,7 +343,7 @@ footer {
   }
 
   .service-hover img {
-    width: 200px;
+    width: 260px;
     max-width: 100%;
     height: auto;
     transform: none;
@@ -336,6 +351,16 @@ footer {
 
   .hero p {
     font-size: 1.1rem;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  #backToTop {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
   }
 
   @media (max-width: 768px) {
