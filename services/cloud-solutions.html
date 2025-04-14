@@ -10,12 +10,11 @@
   <meta name="author" content="Korbies Tech" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://korbies.uk/services/cloud-solutions.html" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Cloud Solutions - Korbies Tech" />
   <meta property="og:description" content="Empower your business with secure and scalable cloud solutions from Korbies Tech." />
-  <meta property="og:image" content="https://msp.korbies.uk/Images/banner.jpeg" />
+  <meta property="og:image" content="https://korbies.uk/images/banner.png" />
   <meta property="og:url" content="https://korbies.uk/services/cloud-solutions.html" />
   <meta property="og:type" content="website" />
 
@@ -23,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cloud Solutions - Korbies Tech" />
   <meta name="twitter:description" content="Empower your business with secure and scalable cloud solutions from Korbies Tech." />
-  <meta name="twitter:image" content="https://msp.korbies.uk/Images/banner.jpeg" />
+  <meta name="twitter:image" content="https://korbies.uk/images/banner.png" />
 
   <meta name="language" content="EN">
   <meta name="geo.region" content="GB">
@@ -37,8 +36,8 @@
     "@type": "ProfessionalService",
     "name": "Korbies Tech",
     "url": "https://korbies.uk",
-    "logo": "https://korbies.uk/Images/banner.png",
-    "image": "https://korbies.uk/Images/banner.png",
+    "logo": "https://korbies.uk/images/banner.png",
+    "image": "https://korbies.uk/images/banner.png",
     "description": "Empower your business with secure and scalable cloud solutions from Korbies Tech. Boost productivity, ensure data protection, and enjoy 24/7 support.",
     "address": {
       "@type": "PostalAddress",
@@ -61,7 +60,7 @@
   }
   </script>
 
-  <link rel="icon" href="../Images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
@@ -72,13 +71,9 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background: none;
       color: white;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .navbar-brand:hover {
-      color: #00c3ff;
-      text-decoration: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     section {
@@ -90,23 +85,6 @@
       backdrop-filter: blur(4px);
       text-align: center;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .feature-item {
-      align-items: center;
-      margin-bottom: 50px; /* Increased spacing */
-    }
-
-    .feature-item img {
-      width: 100%;
-      max-width: 400px; /* Increased size for more impact */
-      height: auto;
-      margin-bottom: 20px; /* Spacing below images */
-      transition: transform 0.3s; /* Optional hover effect */
-    }
-
-    .feature-item img:hover {
-      transform: scale(1.05); /* Optional hover effect */
     }
 
     .container {
@@ -160,65 +138,10 @@
       color: #00c3ff;
     }
 
-    .cta-section .btn {
-      background: linear-gradient(90deg, #00c3ff, #0077ff);
-      border: none;
-      box-shadow: 0 4px 15px rgba(0, 195, 255, 0.6);
-      padding: 14px 36px;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .cta-section .btn:hover {
-      background: linear-gradient(90deg, #0077ff, #00c3ff);
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 195, 255, 0.8);
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 40px 10px;
-      }
-
-      .feature-item {
-        align-items: center;
-        margin-bottom: 50px;
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .feature-item img {
-        width: 100%; /* Responsive */
-        max-width: 280px; /* Bigger for mobile view */
-      }
-
-      .cta-section .btn {
-        font-size: 1rem;
-        padding: 10px 24px;
-      }
-    }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
-  </style>
-  <style>
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('../Images/banner.jpeg') no-repeat center center / cover;
-      z-index: -1;
-      opacity: 1;
-      pointer-events: none;
-      will-change: transform;
-      transform: translateZ(0);
-    }
   </style>
 </head>
 <body>
@@ -256,9 +179,9 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <a href="https://msp.korbies.uk/index.html" class="navbar-brand d-flex align-items-center text-white" style="text-decoration: none;">
+      <span class="navbar-brand d-flex align-items-center text-white">
         Korbies Tech
-      </a>
+      </span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -276,57 +199,31 @@
     <section>
       <div class="container" data-aos="fade-up">
         <h1 class="display-4 mb-3" data-aos="fade-up" data-aos-delay="400">Cloud Solutions</h1>
-        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="600">
-          Future-proof your business with Korbies Tech’s robust and scalable cloud solutions. We help you unlock the full potential of the cloud, giving you flexibility, security, and performance.
-        </p>
+        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="600">Empower your business with scalable and secure cloud solutions designed for growth.</p>
 
-        <!-- Feature Section Start -->
-        <div class="feature-item d-flex mb-5" data-aos="fade-up" data-aos-delay="700">
-          <img src="https://msp.korbies.uk/Images/cloud-security.jpeg" alt="Secure Cloud" class="me-4" role="presentation">
-          <div>
-            <h5>Secure, Encrypted Cloud Environments</h5>
-            <p>Our cloud infrastructure is fortified with enterprise-grade encryption and security protocols, ensuring your data remains safe from cyber threats and compliant with industry standards.</p>
-          </div>
+        <div class="text-start mx-auto my-4" style="max-width: 700px;" data-aos="fade-up" data-aos-delay="800">
+          <h5>✅ Secure, Encrypted Cloud Environments</h5>
+          <p>Our cloud solutions provide secure, encrypted environments to ensure your data is protected and compliant with industry standards.</p>
+
+          <h5>✅ Scalable Infrastructure for Growing Businesses</h5>
+          <p>We offer scalable infrastructure that grows with your business, providing the flexibility needed to adapt to changing demands.</p>
+
+          <h5>✅ 24/7 Monitoring and Support</h5>
+          <p>Our dedicated support team monitors your cloud infrastructure around the clock to ensure optimal performance and quick resolution of issues.</p>
+
+          <h5>✅ Cloud Backups and Disaster Recovery</h5>
+          <p>We implement robust backup and disaster recovery solutions to safeguard your data against loss and ensure business continuity.</p>
+
+          <h5>✅ Remote Collaboration Tools Integration</h5>
+          <p>Enhance productivity with our integrated remote collaboration tools that facilitate seamless communication and teamwork.</p>
         </div>
-
-        <div class="feature-item d-flex mb-5" data-aos="fade-up" data-aos-delay="800">
-          <img src="https://msp.korbies.uk/Images/cloud-infrastructure.jpg" alt="Scalable Infrastructure" class="me-4" role="presentation">
-          <div>
-            <h5>Scalable Infrastructure for Growing Businesses</h5>
-            <p>Easily scale your resources up or down as your business evolves, without worrying about hardware limitations or downtime interruptions.</p>
-          </div>
+        
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h2 class="mb-4">Your Gateway to Scalable Cloud Infrastructure</h2>
+          <p>Leverage the power of the cloud to increase agility, reduce costs, and enable seamless remote collaboration across your organization.</p>
         </div>
-
-        <div class="feature-item d-flex mb-5" data-aos="fade-up" data-aos-delay="900">
-          <img src="https://msp.korbies.uk/Images/scalability.jpg" alt="24/7 Monitoring" class="me-4" role="presentation">
-          <div>
-            <h5>24/7 Monitoring and Support</h5>
-            <p>Our support team proactively monitors your systems around the clock, ensuring uptime and swift resolution of any issues that arise.</p>
-          </div>
-        </div>
-
-        <div class="feature-item d-flex mb-5" data-aos="fade-up" data-aos-delay="1000">
-          <img src="https://msp.korbies.uk/Images/cloud-backup.jpeg" alt="Cloud Backups" class="me-4" role="presentation">
-          <div>
-            <h5>Cloud Backups and Disaster Recovery</h5>
-            <p>Safeguard your data with automated backups and reliable disaster recovery solutions, giving you peace of mind in every scenario.</p>
-          </div>
-        </div>
-
-        <div class="feature-item d-flex mb-5" data-aos="fade-up" data-aos-delay="1100">
-          <img src="https://msp.korbies.uk/Images/remote-collaboration.jpg" alt="Remote Collaboration" class="me-4" role="presentation">
-          <div>
-            <h5>Remote Collaboration Tools Integration</h5>
-            <p>Empower your teams with integrated collaboration tools that keep them connected and productive, wherever they are in the world.</p>
-          </div>
-        </div>
-        <!-- Feature Section End -->
-
-        <!-- Call to Action -->
-        <div class="cta-section text-center mt-5" data-aos="fade-up" data-aos-delay="1200">
-          <h2>Ready to move your business to the cloud?</h2>
-          <p>Contact Korbies Tech today and discover how our cloud solutions can transform your operations.</p>
-          <a href="../index.html#contact" class="btn btn-primary mt-3">Get in Touch</a>
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="900">
+          <a href="../index.html#services" class="btn btn-primary mt-4" style="background: #00c3ff; border: none; box-shadow: 0 4px 15px rgba(0, 195, 255, 0.6); padding: 12px 30px; border-radius: 50px; transition: all 0.3s ease;">← Back to Services</a>
         </div>
       </div>
     </section>
