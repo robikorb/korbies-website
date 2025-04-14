@@ -1,6 +1,8 @@
 let cursor;
 
 document.addEventListener('DOMContentLoaded', () => {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
   // Page loader
   const loader = document.createElement('div');
   loader.style.position = 'fixed';
@@ -17,49 +19,50 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(loader);
 
   // Custom Cursor Init — inside DOMContentLoaded
-  cursor = document.querySelector('.custom-cursor');
+  if (!isMobile) {
+    cursor = document.querySelector('.custom-cursor');
 
-  if (!cursor) {
-    cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
+    if (!cursor) {
+      cursor = document.createElement('div');
+      cursor.className = 'custom-cursor';
+      document.body.appendChild(cursor);
+    }
+
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    document.addEventListener('mousedown', () => {
+      cursor.style.transition = 'transform 0.1s ease';
+      cursor.style.transform += ' scale(0.8)';
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = cursor.style.transform.replace(' scale(0.8)', '');
+    });
+
+    function cursorGrow() {
+      cursor.style.transform += ' scale(1.5)';
+    }
+
+    function cursorShrink() {
+      cursor.style.transform = cursor.style.transform.replace(/ scale\(.*?\)/, '');
+    }
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', cursorGrow);
+      el.addEventListener('mouseleave', cursorShrink);
+    });
   }
-
-  let mouseX = 0, mouseY = 0;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function updateCursor() {
-    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    requestAnimationFrame(updateCursor);
-  }
-  updateCursor();
-
-  document.addEventListener('mousedown', () => {
-    cursor.style.transition = 'transform 0.1s ease';
-    cursor.style.transform += ' scale(0.8)';
-  });
-
-  document.addEventListener('mouseup', () => {
-    cursor.style.transform = cursor.style.transform.replace(' scale(0.8)', '');
-  });
-
-  // Cursor grow effect on hover
-  function cursorGrow() {
-    cursor.style.transform += ' scale(1.5)';
-  }
-
-  function cursorShrink() {
-    cursor.style.transform = cursor.style.transform.replace(/ scale\(.*?\)/, '');
-  }
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', cursorGrow);
-    el.addEventListener('mouseleave', cursorShrink);
-  });
 
   // Page load fade
   document.body.style.opacity = 0;
