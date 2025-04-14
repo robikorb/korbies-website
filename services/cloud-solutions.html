@@ -71,9 +71,14 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: none;
+      background: url('../images/banner-cloud.png') no-repeat center center/cover;
       color: white;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar-brand:hover {
+      color: #00c3ff;
+      text-decoration: none;
     }
 
     .banner-section {
@@ -258,9 +263,9 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <span class="navbar-brand d-flex align-items-center text-white">
+      <a href="../index.html" class="navbar-brand d-flex align-items-center text-white" style="text-decoration: none;">
         Korbies Tech
-      </span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
