@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.style.lineHeight = '1.4';
 
     banner.innerHTML = `
-      <p>We use cookies to ensure you get the best experience. <a href="/privacy-policy.html" style="color: #00c3ff; text-decoration: underline;">Learn more</a></p>
+      <p>We use cookies to ensure you get the best experience. <a href="https://robikorb.github.io/korbies-website/privacy-policy.html" style="color: #00c3ff; text-decoration: underline;">Learn more</a></p>
       <button style="margin-top: 8px; background: #00c3ff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">Accept</button>
     `;
 
