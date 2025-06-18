@@ -48,7 +48,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', Arial, sans-serif;
-      background: var(--bg-gradient);
+      /* background: var(--bg-gradient); */
+      background: transparent;
       color: var(--text);
       scroll-behavior: smooth;
       min-height: 100%;
@@ -402,14 +403,15 @@
       }
     }
   </style>
+</style>
   <!-- Video background style -->
   <style>
     #bg-video {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -2;
       pointer-events: none;
@@ -418,7 +420,7 @@
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
-    <source src="images/Abstract_Animation_Request_Fulfilled.mp4" type="video/mp4">
+    <source src="images/Abstract_Animation_Request_Fulfilled.webm" type="video/webm">
   </video>
   <header>
     <a href="#" class="logo">
@@ -602,6 +604,28 @@
     </p>
   </footer>
   <script>
+    // Scroll-scrub video background: slow video as user scrolls (approx 2.5x slower than scroll pace)
+    function setupVideoScrollScrub() {
+      const video = document.getElementById('bg-video');
+      if (!video) return;
+      const duration = video.duration || 60; // fallback if video duration not loaded
+      function onScroll() {
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollFraction = docHeight > 0 ? scrollTop / docHeight : 0;
+        // Slower video playback: 2.5x slower than scroll
+        const adjustedScrollFraction = scrollFraction * 0.4;
+        if (!isNaN(video.duration)) {
+          video.currentTime = Math.min(video.duration * adjustedScrollFraction, video.duration - 0.05);
+        }
+      }
+      window.addEventListener('scroll', onScroll);
+      // If video metadata loads later
+      video.addEventListener('loadedmetadata', onScroll);
+      // Initial set
+      onScroll();
+    }
+
     // Cache selectors outside scroll functions
     let fadeEls, serviceCards, parallaxEls, navLinks;
     // Scroll fade-in for sections and cards
@@ -673,6 +697,8 @@
       onScrollFadeIn();
       onScrollParallax();
       highlightNav();
+      // Setup slow scroll-scrub video background
+      setupVideoScrollScrub();
     });
     // Throttle scroll events with requestAnimationFrame
     let ticking = false;
