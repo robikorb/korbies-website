@@ -954,6 +954,10 @@
 </html>
 
   // Hamburger menu toggle for mobile
-  document.getElementById('menuToggle').addEventListener('click', function() {
-    document.querySelector('nav').classList.toggle('show');
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('menuToggle');
+    const navMenu = document.querySelector('nav');
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
   });
