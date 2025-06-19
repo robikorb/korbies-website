@@ -30,7 +30,11 @@
     }
 
     nav {
-      display: none;
+      display: none !important;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
       flex-direction: column;
       background: rgba(30,30,60,0.95);
       position: absolute;
@@ -42,7 +46,10 @@
     }
 
     nav.show {
-      display: flex;
+      display: flex !important;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -884,6 +891,12 @@
             }
           }
         });
+      });
+      // Hamburger menu toggle for mobile
+      const toggleBtn = document.getElementById('menuToggle');
+      const navMenu = document.querySelector('nav');
+      toggleBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
       });
       // Initial trigger
       onScrollFadeIn();
