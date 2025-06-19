@@ -879,6 +879,8 @@
                 top: target.offsetTop - document.querySelector('header').offsetHeight + 1,
                 behavior: 'smooth'
               });
+              // Close menu on mobile
+              document.querySelector('nav').classList.remove('show');
             }
           }
         });
@@ -952,12 +954,3 @@
   </script>
 </body>
 </html>
-
-  // Hamburger menu toggle for mobile
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('menuToggle');
-    const navMenu = document.querySelector('nav');
-    toggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-    });
-  });
