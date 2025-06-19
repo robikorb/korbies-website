@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Korbies Tech – Where Complexity Flows to Clarity. Managed IT, cybersecurity, cloud services, and IT support that transforms your operations.">
-  <title>Korbies Tech – Modern IT Solutions</title>
+  <meta name="description" content="Korbies Tech – Local IT Support for Ipswich & Suffolk. Managed IT Support, Cybersecurity, Cloud Services, and IT Consulting for small businesses in Suffolk.">
+  <title>Korbies Tech – Local IT Support for Ipswich & Suffolk</title>
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -196,11 +196,11 @@
       margin-bottom: 2.2rem;
       line-height: 1.6;
       max-width: 32rem;
-      background: rgba(0, 40, 90, 0.35);
+      background: rgba(30, 30, 60, 0.25);
       padding: 1.1rem 1.6rem;
       border-radius: 18px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .cta-btn {
@@ -396,6 +396,28 @@
       background: #0073e6;
       transform: translateY(-1px) scale(1.03);
     }
+    .contact-form select {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1.5px solid #1e90ff;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(30,144,255, 0.15);
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7L10 12L15 7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
+    .contact-form select:focus {
+      outline: none;
+      border-color: #66b2ff;
+      box-shadow: 0 0 0 3px rgba(100, 180, 255, 0.4);
+    }
     /* Footer */
     footer {
       background: #f5f7fa;
@@ -485,42 +507,33 @@
     }
 </style>
   <style>
-    #managed-it-details {
+    #services,
+    #calculator,
+    #managed-it-details,
+    #about,
+    #whyus,
+    #contact {
       position: relative;
       z-index: 1;
       padding: 3rem 2rem;
       border-radius: 16px;
     }
 
-    #managed-it-details::before {
+    #services::before,
+    #calculator::before,
+    #managed-it-details::before,
+    #about::before,
+    #whyus::before,
+    #contact::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       z-index: -1;
       border-radius: 16px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-
-    #whyus, #contact {
-      position: relative;
-      z-index: 1;
-      padding: 3rem 2rem;
-      border-radius: 16px;
-    }
-
-    #whyus::before, #contact::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: -1;
-      border-radius: 16px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
   </style>
 </style>
@@ -556,7 +569,7 @@
   <main>
     <section class="hero" id="home">
       <div class="hero-content fade-in-on-scroll">
-        <h1 class="hero-title">Modern IT Solutions for Future-Focused Businesses</h1>
+        <h1 class="hero-title">Local IT Support for Ipswich & Suffolk</h1>
         <p class="hero-tagline">
           Korbies Tech delivers robust, secure, and scalable IT services to empower your growth. Experience seamless technology, proactive support, and peace of mind—every day.
         </p>
@@ -569,7 +582,7 @@
     <div style="height: 140px;"></div>
     </section>
 
-    <section id="services">
+    <section id="services" class="content-box" style="position: relative; z-index: 1;">
       <h2 class="section-title fade-in-on-scroll">Our Services</h2>
       <div class="services-grid">
         <div class="service-card">
@@ -605,6 +618,42 @@
       </div>
     </section>
 
+    <section id="calculator" class="content-box fade-in-on-scroll" style="margin-top: 4rem; position: relative; z-index: 1;">
+      <h2 class="section-title">Clarity Calculator</h2>
+      <p class="section-desc">Compare the cost of in-house IT vs. Korbies Tech’s support tiers. Estimate your savings and discover the right plan for your business—without seeing any pricing upfront.</p>
+      <form id="it-cost-calculator" class="contact-form" style="max-width: 600px; margin-top: 2rem; font-family: 'Inter', sans-serif;">
+        <label for="teamSize">How many users are in your team?</label>
+        <select id="teamSize" name="teamSize" required>
+          <option value="">Select size</option>
+          <option value="3">1–5 users</option>
+          <option value="8">6–10 users</option>
+          <option value="15">11–20 users</option>
+          <option value="25">20+ users</option>
+        </select>
+
+        <label for="internalIT">Do you currently have internal IT staff?</label>
+        <select id="internalIT" name="internalIT" required>
+          <option value="">Select one</option>
+          <option value="none">No internal IT</option>
+          <option value="part">Yes – Part-time</option>
+          <option value="full">Yes – Full-time</option>
+        </select>
+
+        <label for="focus">Top IT concern today:</label>
+        <select id="focus" name="focus" required>
+          <option value="">Select focus</option>
+          <option>Unpredictable IT costs</option>
+          <option>Frequent issues & downtime</option>
+          <option>Security & compliance</option>
+          <option>Looking to scale or modernise</option>
+        </select>
+
+        <button type="button" class="cta-btn" onclick="calculateITCosts()">Estimate My Savings</button>
+
+        <div id="calcResult" style="margin-top: 2rem; font-size: 1.05rem; color: #f5faff;"></div>
+      </form>
+    </section>
+
     <section id="managed-it-details" class="content-box">
       <h2 class="section-title fade-in-on-scroll">Managed IT Services</h2>
       <p class="section-desc">
@@ -613,13 +662,13 @@
 
       <h3 class="section-title" style="font-size: 1.5rem;">Benefits of Managed IT</h3>
       <ul style="color: #333; font-size: 1.05rem; line-height: 1.7;">
-        <li>✅ Cost Predictability: Fixed monthly fees with no surprises.</li>
-        <li>✅ Improved Uptime: Proactive monitoring prevents downtime.</li>
-        <li>✅ Enhanced Cybersecurity: Antivirus, firewall, and patching included.</li>
-        <li>✅ Expert Access: Get certified IT professionals on call.</li>
-        <li>✅ Business Focus: We manage IT so you can grow.</li>
-        <li>✅ Scalable Support: We grow as your business grows.</li>
-        <li>✅ Disaster Recovery: Secure backups & recovery plans included.</li>
+        <li>Cost Predictability: Fixed monthly fees with no surprises.</li>
+        <li>Improved Uptime: Proactive monitoring prevents downtime.</li>
+        <li>Enhanced Cybersecurity: Antivirus, firewall, and patching included.</li>
+        <li>Expert Access: Get certified IT professionals on call.</li>
+        <li>Business Focus: We manage IT so you can grow.</li>
+        <li>Scalable Support: We grow as your business grows.</li>
+        <li>Disaster Recovery: Secure backups & recovery plans included.</li>
       </ul>
 
       <h3 class="section-title" style="font-size: 1.5rem;">What's Included</h3>
@@ -648,7 +697,7 @@
 
     </section>
 
-    <section class="about" id="about">
+    <section id="about" class="about content-box" style="position: relative; z-index: 1;">
       <div class="about-img parallax">
         <img src="images/about-us.png" alt="About Us">
       </div>
@@ -808,6 +857,27 @@
       }
     });
     window.addEventListener('resize', onScrollParallax);
+
+    function calculateITCosts() {
+      const size = parseInt(document.getElementById('teamSize').value);
+      const internalIT = document.getElementById('internalIT').value;
+      const resultDiv = document.getElementById('calcResult');
+
+      if (!size || !internalIT) {
+        resultDiv.innerHTML = "<p>Please complete all fields to estimate savings.</p>";
+        return;
+      }
+
+      const salary = internalIT === 'full' ? 28500 : internalIT === 'part' ? 14500 : 0;
+      const heronEstimate = size * 55; // Example mid-tier (Growth)
+      const diff = salary - (heronEstimate * 12);
+      
+      let message = `<p>With a team of ${size}, you're likely spending <strong>£${salary.toLocaleString()}</strong> annually on internal IT.</p>`;
+      message += `<p>Outsourcing to Korbies Tech's support tier could save you <strong>up to £${Math.max(0, diff).toLocaleString()}</strong> per year—plus gain access to 24/7 monitoring, cybersecurity, and more.</p>`;
+      message += `<p><em>Want to tailor your support? <a href="#contact" style="color:#ffffff; font-weight:600; text-decoration:underline;">Book a free consultation</a>.</em></p>`;
+
+      resultDiv.innerHTML = message;
+    }
   </script>
   <script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
