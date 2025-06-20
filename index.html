@@ -634,38 +634,68 @@
     <div style="height: 140px;"></div>
     </section>
 
-    <section id="services" class="content-box" style="position: relative; z-index: 1;">
-      <h2 class="section-title fade-in-on-scroll">Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="images/managed it.png" alt="Managed IT">
-          <div class="service-title">Managed IT</div>
-          <div class="service-desc">Comprehensive managed IT support tailored for UK SMBs. Enjoy predictable costs, reduced downtime, and peace of mind with 24/7 monitoring, expert helpdesk services, proactive maintenance, and cybersecurity—all under one roof.</div>
-        </div>
-        <div class="service-card">
-          <img src="images/backup.png" alt="Backup & Recovery">
-          <div class="service-title">Backup &amp; Recovery</div>
-          <div class="service-desc">Automated, reliable data backup with rapid recovery to keep your business running—no matter what happens.</div>
-        </div>
-        <div class="service-card">
-          <img src="images/email.png" alt="Email Solutions">
-          <div class="service-title">Email Solutions</div>
-          <div class="service-desc">Professional, secure business email setup, migration, and support—powered by leading platforms.</div>
-        </div>
-        <div class="service-card">
-          <img src="images/cubersecurity.png" alt="Cybersecurity">
-          <div class="service-title">Cybersecurity</div>
-          <div class="service-desc">Advanced protection for your data, devices, and users. Threat prevention, detection, and response tailored for your business.</div>
-        </div>
-        <div class="service-card">
-          <img src="images/managed it.png" alt="Cloud Services">
-          <div class="service-title">Cloud Services</div>
-          <div class="service-desc">Migrate, manage, and optimize your cloud infrastructure for agility, security, and cost-efficiency.</div>
-        </div>
-        <div class="service-card">
-          <img src="images/backup.png" alt="IT Consulting">
-          <div class="service-title">IT Consulting</div>
-          <div class="service-desc">Strategic guidance to align technology with your business goals. Plan, implement, and innovate with confidence.</div>
+    <section id="services" class="content-box" style="position: relative; z-index: 1; overflow: hidden;">
+      <!-- 🔹 Main content over video -->
+      <div style="position: relative; z-index: 1;">
+        <h2 class="section-title fade-in-on-scroll">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-video-card"
+               style="position: relative; overflow: hidden; border-radius: 18px;
+                      display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
+            <video autoplay muted loop playsinline
+                   style="inset: 0; position: absolute; width: 100%; height: 100%;
+                          object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
+              <source src="public/videos/managed.mp4" type="video/mp4">
+            </video>
+            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
+              <img src="images/managed it.png" alt="Managed IT">
+              <div class="service-title">Managed IT</div>
+              <div class="service-desc">Comprehensive managed IT support tailored for UK SMBs. Enjoy predictable costs, reduced downtime, and peace of mind with 24/7 monitoring, expert helpdesk services, proactive maintenance, and cybersecurity—all under one roof.</div>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="images/backup.png" alt="Backup & Recovery">
+            <div class="service-title">Backup &amp; Recovery</div>
+            <div class="service-desc">Automated, reliable data backup with rapid recovery to keep your business running—no matter what happens.</div>
+          </div>
+          <div class="service-video-card"
+               style="position: relative; overflow: hidden; border-radius: 18px;
+                      display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
+            <video autoplay muted loop playsinline
+                   style="inset: 0; position: absolute; width: 100%; height: 100%;
+                          object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
+              <source src="public/videos/email.mp4" type="video/mp4">
+            </video>
+            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
+              <img src="images/email.png" alt="Email Solutions">
+              <div class="service-title">Email Solutions</div>
+              <div class="service-desc">Professional, secure business email setup, migration, and support—powered by leading platforms.</div>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="images/cubersecurity.png" alt="Cybersecurity">
+            <div class="service-title">Cybersecurity</div>
+            <div class="service-desc">Advanced protection for your data, devices, and users. Threat prevention, detection, and response tailored for your business.</div>
+          </div>
+          <div class="service-video-card"
+               style="position: relative; overflow: hidden; border-radius: 18px;
+                      display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
+            <video autoplay muted loop playsinline
+                   style="inset: 0; position: absolute; width: 100%; height: 100%;
+                          object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
+              <source src="public/videos/digital_cloud_final.mp4" type="video/mp4">
+            </video>
+            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
+              <img src="images/managed it.png" alt="Cloud Services">
+              <div class="service-title">Cloud Services</div>
+              <div class="service-desc">Migrate, manage, and optimize your cloud infrastructure for agility, security, and cost-efficiency.</div>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="images/backup.png" alt="IT Consulting">
+            <div class="service-title">IT Consulting</div>
+            <div class="service-desc">Strategic guidance to align technology with your business goals. Plan, implement, and innovate with confidence.</div>
+          </div>
         </div>
       </div>
     </section>
