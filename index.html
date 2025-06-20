@@ -981,13 +981,20 @@
       }
 
       const salary = internalIT === 'full' ? 28500 : internalIT === 'part' ? 14500 : 0;
-      const heronEstimate = size * 55; // Example mid-tier (Growth)
-      const diff = salary - (heronEstimate * 12);
-      
-      let message = `<p>With a team of ${size}, you're likely spending <strong>£${salary.toLocaleString()}</strong> annually on internal IT.</p>`;
-      message += `<p>Outsourcing to Korbies Tech's support tier could save you <strong>up to £${Math.max(0, diff).toLocaleString()}</strong> per year—plus gain access to 24/7 monitoring, cybersecurity, and more.</p>`;
-      message += `<p><em>Want to tailor your support? <a href="#contact" style="color:#ffffff; font-weight:600; text-decoration:underline;">Book a free consultation</a>.</em></p>`;
+      const korbiesEstimate = size * 55 * 12;
+      const diff = salary - korbiesEstimate;
 
+      let message = `<p>With a team of ${size},`;
+
+      if (internalIT === 'none') {
+        message += ` you're currently not spending on internal IT.</p>`;
+        message += `<p>Partnering with Korbies Tech could provide enterprise-grade IT support from just <strong>£${korbiesEstimate.toLocaleString()}</strong> per year—covering monitoring, security, helpdesk and more.</p>`;
+      } else {
+        message += ` you're likely spending <strong>£${salary.toLocaleString()}</strong> annually on internal IT.</p>`;
+        message += `<p>Outsourcing to Korbies Tech's support tier could save you <strong>up to £${Math.max(0, diff).toLocaleString()}</strong> per year—plus gain access to 24/7 monitoring, cybersecurity, and more.</p>`;
+      }
+
+      message += `<p><em>Want to tailor your support? <a href="#contact" style="color:#ffffff; font-weight:600; text-decoration:underline;">Book a free consultation</a>.</em></p>`;
       resultDiv.innerHTML = message;
     }
   </script>
