@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="prefetch" href="/blog" as="document">
 
   <!-- Favicons & PWA -->
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -38,9 +39,22 @@
     "@type":"LocalBusiness",
     "name":"Korbies Tech",
     "url":"https://msp.korbies.uk/",
-    "areaServed":"Ipswich and Suffolk",
     "image":"https://msp.korbies.uk/og-cover.jpg",
     "description":"Managed IT, Cybersecurity, Cloud, and IT Consulting for UK SMBs.",
+    "telephone":"+44 1400 000000",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Ipswich",
+      "addressRegion":"Suffolk",
+      "addressCountry":"GB"
+    },
+    "areaServed":{
+      "@type":"Place",
+      "name":"Ipswich and Suffolk"
+    },
+    "sameAs":[
+      "https://www.linkedin.com/company/korbies-tech"
+    ],
     "contactPoint":{
       "@type":"ContactPoint",
       "contactType":"sales",
@@ -79,7 +93,7 @@
     .btn-accent:hover{filter:brightness(1.05)}
 
     /* Sections */
-    section{padding:4.5rem 0}
+    section{padding-block:clamp(2.5rem,6vw,4.5rem);scroll-margin-top:84px}
     .section-title{font-weight:800;margin-bottom:.75rem}
     .section-sub{color:var(--kt-muted);max-width:880px}
 
@@ -110,6 +124,25 @@
     /* Footer */
     .footer{border-top:1px solid var(--kt-border);color:var(--kt-muted)}
 
+    /* Accessibility: skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:fixed;left:1rem;top:1rem;width:auto;height:auto;padding:.5rem .75rem;background:#000;color:#fff;z-index:2000;border-radius:.5rem}
+
+    /* Nav border & focus states */
+    .navbar{border-bottom:1px solid var(--kt-border)}
+    .btn:focus-visible,.nav-link:focus-visible{outline:2px solid var(--kt-accent-2);outline-offset:2px}
+
+    /* Anchor offset for fixed header */
+    html{scroll-padding-top:84px}
+
+    /* Hero text readability */
+    .hero h1,.hero p.lead{text-shadow:0 2px 14px rgba(0,0,0,.35)}
+
+    /* Reveal delays (replace inline styles) */
+    .reveal-delay-1{transition-delay:.08s}
+    .reveal-delay-2{transition-delay:.16s}
+    .reveal-delay-3{transition-delay:.24s}
+
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -125,6 +158,7 @@
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#ktNav" data-bs-offset="90" tabindex="0">
+  <a href="#main" class="skip-link">Skip to main content</a>
   <!-- Sticky Nav -->
   <nav id="ktNav" class="navbar navbar-expand-lg fixed-top py-2">
     <div class="container">
@@ -151,6 +185,7 @@
     </div>
   </nav>
 
+  <main id="main">
   <!-- Hero -->
   <header id="hero" class="hero">
     <div class="glow"></div>
@@ -158,12 +193,12 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
           <h1 class="mb-3 reveal">Local IT Support for Ipswich &amp; Suffolk</h1>
-          <p class="lead reveal" style="transition-delay:.08s">Korbies Tech delivers robust, secure, and scalable IT services to empower your growth. Experience seamless technology, proactive support, and peace of mind—every day.</p>
-          <div class="d-flex flex-wrap align-items-center gap-3 mt-3 reveal" style="transition-delay:.16s">
+          <p class="lead reveal reveal-delay-1">Korbies Tech delivers robust, secure, and scalable IT services to empower your growth. Experience seamless technology, proactive support, and peace of mind—every day.</p>
+          <div class="d-flex flex-wrap align-items-center gap-3 mt-3 reveal reveal-delay-2">
             <a href="#contact" class="btn btn-lg btn-accent">Book Your Free IT Consultation</a>
             <span class="muted">Where Complexity Flows to Clarity</span>
           </div>
-          <div class="d-flex gap-4 mt-4 muted reveal" style="transition-delay:.24s">
+          <div class="d-flex gap-4 mt-4 muted reveal reveal-delay-3">
             <span><i class="fa-solid fa-headset me-2"></i>UK-based helpdesk</span>
             <span><i class="fa-solid fa-shield-halved me-2"></i>Security-first</span>
             <span><i class="fa-solid fa-bolt me-2"></i>Fast response</span>
@@ -432,27 +467,27 @@
                     <input type="hidden" name="_autoresponse" value="Thank you for contacting Korbies Tech! We'll get back to you soon.">
                     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="col-md-6">
-                      <label class="form-label">Full Name</label>
-                      <input type="text" name="name" class="form-control" required />
+                      <label for="name" class="form-label">Full Name</label>
+                      <input type="text" id="name" name="name" class="form-control" required />
                       <div class="invalid-feedback">Please enter your name.</div>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label">Company</label>
-                      <input type="text" name="company" class="form-control" required />
+                      <label for="company" class="form-label">Company</label>
+                      <input type="text" id="company" name="company" class="form-control" required />
                       <div class="invalid-feedback">Please enter your company.</div>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label">Email</label>
-                      <input type="email" name="email" class="form-control" required />
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" id="email" name="email" class="form-control" required />
                       <div class="invalid-feedback">Provide a valid email.</div>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label">Phone</label>
-                      <input type="tel" name="phone" class="form-control" />
+                      <label for="phone" class="form-label">Phone</label>
+                      <input type="tel" id="phone" name="phone" class="form-control" />
                     </div>
                     <div class="col-12">
-                      <label class="form-label">Service Interest</label>
-                      <select name="interest" class="form-select" required>
+                      <label for="interest" class="form-label">Service Interest</label>
+                      <select id="interest" name="interest" class="form-select" required>
                         <option value="" selected disabled>Choose...</option>
                         <option>Managed IT Services</option>
                         <option>Cybersecurity</option>
@@ -463,8 +498,8 @@
                       <div class="invalid-feedback">Please select an option.</div>
                     </div>
                     <div class="col-12">
-                      <label class="form-label">How can we help?</label>
-                      <textarea name="message" class="form-control" rows="4" required></textarea>
+                      <label for="message" class="form-label">How can we help?</label>
+                      <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
                       <div class="invalid-feedback">Please add a short message.</div>
                     </div>
                     <div class="col-12">
@@ -477,7 +512,7 @@
                     <div class="col-12 d-grid">
                       <button class="btn btn-accent btn-lg" type="submit"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
                     </div>
-                    <div id="formAlert" class="col-12 d-none">
+                    <div id="formAlert" class="col-12 d-none" role="status" aria-live="polite">
                       <div class="alert alert-success mt-2 mb-0" role="alert">Thanks—your message has been queued. We'll get back to you shortly.</div>
                     </div>
                   </div>
@@ -490,6 +525,7 @@
     </div>
   </section>
 
+  </main>
   <footer class="footer py-4">
     <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
       <span class="muted">© <span id="year"></span> Korbies Tech — Local IT Support for Ipswich &amp; Suffolk · <a class="text-decoration-underline" href="/privacy-policy.html">Privacy</a></span>
@@ -524,6 +560,7 @@
         }
       })
     })
+    document.documentElement.style.setProperty('--kt-scroll-pad','84px');
 
     // Calculator logic (no pricing shown)
     const emp = document.getElementById('emp');
