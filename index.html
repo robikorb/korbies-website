@@ -3,1093 +3,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Korbies Tech – Local IT Support for Ipswich & Suffolk. Managed IT Support, Cybersecurity, Cloud Services, and IT Consulting for small businesses in Suffolk.">
-  <title>Korbies Tech – Local IT Support for Ipswich & Suffolk</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Korbies Tech — Local IT Support for Ipswich & Suffolk</title>
+  <meta name="description" content="Korbies Tech delivers robust, secure, and scalable IT services for SMBs in Ipswich & Suffolk. Proactive support, UK-based helpdesk, and peace of mind—every day." />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Favicons & PWA -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://msp.korbies.uk/">
+  <meta property="og:title" content="Korbies Tech — Local IT Support for Ipswich & Suffolk">
+  <meta property="og:description" content="Robust, secure, and scalable IT services for UK SMBs. Experience proactive support and peace of mind—every day.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://msp.korbies.uk/og-cover.jpg">
+  <meta property="og:url" content="https://msp.korbies.uk/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Korbies Tech",
+    "url":"https://msp.korbies.uk/",
+    "areaServed":"Ipswich and Suffolk",
+    "image":"https://msp.korbies.uk/og-cover.jpg",
+    "description":"Managed IT, Cybersecurity, Cloud, and IT Consulting for UK SMBs.",
+    "contactPoint":{
+      "@type":"ContactPoint",
+      "contactType":"sales",
+      "email":"hello@korbies.uk"
+    }
+  }
+  </script>
   <style>
-  .menu-toggle {
-    background: transparent;
-    border: none;
-    font-size: 1.8rem;
-    color: #f5faff;
-    cursor: pointer;
-    display: none;
-  }
+    :root{
+      --kt-bg: #0b132b;          /* deep blue */
+      --kt-bg-2: #1c2541;        /* slate blue */
+      --kt-accent: #2d5bff;      /* primary */
+      --kt-accent-2:#19b5fe;     /* secondary accent */
+      --kt-text:#e9eef7;         /* near white */
+      --kt-muted:#9fb0c7;        /* muted */
+      --kt-card:#111a33;         /* card */
+      --kt-border:#203057;       /* border */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:linear-gradient(180deg,var(--kt-bg) 0%, var(--kt-bg-2) 100%);color:var(--kt-text)}
+    a{color:var(--kt-accent)}
+    .navbar{background:rgba(11,19,43,.72);backdrop-filter:saturate(140%) blur(10px)}
+    .navbar .nav-link{color:var(--kt-text);opacity:.9}
+    .navbar .nav-link.active,.navbar .nav-link:hover{color:#fff;opacity:1}
+    .brand-k{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;color:#fff;text-decoration:none}
+    .brand-k .logo{width:36px;height:36px;border-radius:12px;background:radial-gradient(100% 100% at 30% 20%, #3bc3ff 0%, #2d5bff 45%, #111a33 100%);display:grid;place-items:center;box-shadow:0 8px 20px rgba(45,91,255,.35)}
+    .brand-k .logo span{font-weight:800}
 
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-    }
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:7rem 0 5rem}
+    .hero .glow{position:absolute;inset:auto -20% -40% -20%;height:70vh;background:radial-gradient(50% 50% at 50% 50%, rgba(45,91,255,.35) 0%, rgba(25,181,254,.12) 40%, transparent 70%);filter:blur(40px);pointer-events:none}
+    .hero h1{font-size:clamp(2rem,3.2vw + 1rem,3.25rem);font-weight:800}
+    .hero p.lead{color:var(--kt-muted);font-size:1.15rem}
+    .btn-accent{background:linear-gradient(90deg,var(--kt-accent),var(--kt-accent-2));border:none}
+    .btn-accent:hover{filter:brightness(1.05)}
 
-    nav {
-      display: none !important;
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      flex-direction: column;
-      background: rgba(30,30,60,0.95);
-      position: absolute;
-      top: 64px;
-      right: 2vw;
-      border-radius: 12px;
-      padding: 1rem;
-      z-index: 999;
-    }
+    /* Sections */
+    section{padding:4.5rem 0}
+    .section-title{font-weight:800;margin-bottom:.75rem}
+    .section-sub{color:var(--kt-muted);max-width:880px}
 
-    nav.show {
-      display: flex !important;
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+    /* Cards */
+    .kt-card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border:1px solid var(--kt-border);border-radius:18px;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+    .kt-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.45);border-color:#2b3f73}
 
-  @media (min-width: 769px) {
-    nav {
-      display: flex !important;
-      flex-direction: row;
-      position: static;
-      background: transparent;
-      padding: 0;
-    }
-
-    .menu-toggle {
-      display: none !important;
-    }
-  }
-    .content-box {
-      background: rgba(30, 30, 60, 0.25);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #f8f9fa;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .content-box p,
-    .content-box li {
-      color: #f5faff;
-    }
-
-    .content-box h2,
-    .content-box h3 {
-      color: #f5faff;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    .hero-slogan {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #f5faff;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-      margin-top: 1.5rem;
-      letter-spacing: 1.2px;
-      max-width: 30rem;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% }
-      50% { background-position: 100% }
-      100% { background-position: 0% }
-    }
-    :root {
-      --primary: #2b2e4a;
-      --secondary: #1e90ff;
-      --bg-gradient: linear-gradient(135deg, #e0f2ff 0%, #f5f7fa 100%);
-      --accent: #903749;
-      --text: #222c36;
-      --card-bg: rgba(255,255,255,0.05);
-      --shadow: 0 2px 16px 0 rgba(20,20,20,0.08);
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      /* background: var(--bg-gradient); */
-      background: transparent;
-      color: var(--text);
-      scroll-behavior: smooth;
-      min-height: 100%;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(20, 20, 20, 0.4);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.6rem 2.5vw;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      max-width: 1140px;
-      margin: 0 auto;
-      border-radius: 16px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #1e90ff;
-      text-decoration: none;
-    }
-    .logo img {
-      height: 38px;
-      width: 38px;
-      object-fit: contain;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-left: 0.5rem;
-    }
-    nav a {
-      color: #f0f0f0;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: color 0.2s;
-      font-size: 1rem;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: var(--secondary);
-      transition: width 0.3s;
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-    }
-    nav a.active {
-      color: #f5faff;
-      background: rgba(0, 64, 128, 0.4);
-      padding: 0.4rem 0.95rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 64, 128, 0.25);
-      font-weight: 700;
-    }
-
-    nav a:hover {
-      background: rgba(0, 64, 128, 0.25);
-      color: #e0f2ff;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      display: none;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    section {
-      padding: 5rem 2vw 4rem 2vw;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-    }
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 70vh;
-      gap: 2.5rem;
-      padding-top: 4rem;
-    }
-    .hero-content {
-      flex: 1 1 340px;
-      z-index: 2;
-    }
-    .hero-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.9rem;
-      font-weight: 700;
-      color: #1e90ff;
-      margin-bottom: 0.7rem;
-      letter-spacing: 2.5px;
-      transition: color 0.3s;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    }
-    .hero-tagline {
-      font-size: 1.25rem;
-      color: #f5faff;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
-      margin-bottom: 2.2rem;
-      line-height: 1.6;
-      max-width: 32rem;
-      background: rgba(30, 30, 60, 0.25);
-      padding: 1.1rem 1.6rem;
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .cta-btn {
-      background: var(--secondary);
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 28px;
-      padding: 0.9rem 2.2rem;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(30, 144, 255, 0.25);
-      transition: background 0.2s, transform 0.15s;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-    .cta-btn:hover {
-      background: #0073e6;
-      transform: scale(1.05);
-    }
-    .hero-logo {
-      flex: 1 1 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 260px;
-    }
-    .hero-logo img {
-      width: 270px;
-      max-width: 100%;
-      filter: drop-shadow(0 4px 16px #23252644);
-      animation: floatLogo 4s ease-in-out infinite;
-      box-shadow: 0 8px 32px 0 rgba(30, 144, 255, 0.12), 0 2px 16px 0 rgba(30,144,255,0.10);
-      border-radius: 22px;
-      background: transparent;
-      transition: box-shadow 0.3s;
-    }
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(-18px);}
-    }
     /* Services */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.2rem;
-      margin-top: 2.5rem;
-      justify-content: center;
-    }
+    .service-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(43,95,255,.25), rgba(27,179,254,.2));border:1px solid #2b3f73}
 
-    @media (max-width: 768px) {
-      .services-grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-    .service-card {
-      background: rgba(30, 30, 60, 0.25);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 2.3rem 1.3rem 1.6rem 1.3rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(.23,1.02,.27,.97), transform 0.8s cubic-bezier(.23,1.02,.27,.97);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid #e0f2ff33;
-    }
-    a:focus, button:focus, .cta-btn:focus, input:focus, textarea:focus {
-      outline: 3px solid #1e90ff;
-      outline-offset: 3px;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-    .service-card.fade-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .service-card img {
-      width: 62px;
-      height: 62px;
-      margin-bottom: 1.3rem;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 8px #e8454533);
-    }
-    .service-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.18rem;
-      color: #f5faff;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-    .service-desc {
-      font-size: 1.02rem;
-      color: #f5faff;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-      line-height: 1.5;
-    }
-    /* About, Why Us, Contact */
-    .about, .why-us, .contact {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2.5rem;
-    }
-    .about-img, .why-img, .contact-img {
-      flex: 1 1 270px;
-      min-width: 230px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .about-img img, .why-img img, .contact-img img {
-      width: 220px;
-      max-width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px 0 #23252622;
-    }
-    .about-content, .why-content, .contact-content {
-      flex: 2 1 340px;
-      min-width: 240px;
-      color: #f5faff;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    }
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.1rem;
-      color: #f5faff;
-      background: rgba(30, 30, 60, 0.15);
-      display: inline-block;
-      padding: 0.3rem 0.8rem;
-      border-radius: 12px;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
-      margin-bottom: 1.1rem;
-      font-weight: 700;
-    }
-    .section-desc {
-      font-size: 1.08rem;
-      color: #ffffffcc;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-      line-height: 1.7;
-      margin-bottom: 0.8rem;
-    }
-    /* Contact Form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      margin-top: 1.1rem;
-      max-width: 420px;
-    }
-    .contact-form label {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #f0f0f0;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-      margin-bottom: 0.2rem;
-      margin-top: 0.3rem;
-      letter-spacing: 0.2px;
-    }
-    .contact-form input, .contact-form textarea {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1.5px solid #ccc;
-      border-radius: 7px;
-      padding: 0.9rem 1rem;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: none;
-      transition: border 0.2s, box-shadow 0.2s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border-color: #1e90ff;
-      outline: none;
-    }
-    .contact-form button {
-      background: var(--secondary);
-      color: #fff;
-      font-weight: 700;
-      border: none;
-      border-radius: 28px;
-      padding: 0.85rem 2.2rem;
-      font-size: 1.08rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      margin-top: 0.2rem;
-      align-self: flex-start;
-    }
-    .contact-form button:hover {
-      background: #0073e6;
-      transform: translateY(-1px) scale(1.03);
-    }
-    .contact-form select {
-      background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-      border: 1.5px solid #1e90ff;
-      border-radius: 10px;
-      padding: 0.9rem 1rem;
-      font-size: 1rem;
-      font-family: inherit;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 2px 10px rgba(30,144,255, 0.15);
-      appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7L10 12L15 7'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      background-size: 1rem;
-      width: 100%;
-    }
-    .contact-form select:focus {
-      outline: none;
-      border-color: #66b2ff;
-      box-shadow: 0 0 0 3px rgba(100, 180, 255, 0.4);
-    }
+    /* FAQ */
+    .accordion-button{background:#0e1733;color:#fff}
+    .accordion-button:not(.collapsed){background:#132046;color:#fff}
+    .accordion-body{background:#0f1a37;color:var(--kt-text)}
+
+    /* Contact */
+    .form-control, .form-select{background:#0f1a37;border:1px solid var(--kt-border);color:#fff}
+    .form-control:focus, .form-select:focus{border-color:var(--kt-accent); box-shadow:0 0 0 .2rem rgba(45,91,255,.25)}
+
+    /* Reveal animations */
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1; transform:translateY(0)}
+
+    /* Utilities */
+    .muted{color:var(--kt-muted)}
+    .divider{height:1px;background:linear-gradient(90deg, transparent, #2b3f73 50%, transparent)}
+
     /* Footer */
-    footer {
-      background: #f5f7fa;
-      color: #333;
-      text-align: center;
-      padding: 2rem 0 1.2rem 0;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin-top: 2rem;
-    }
-    /* Scroll Animations */
-    .fade-in-on-scroll {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.9s cubic-bezier(.23,1.02,.27,.97), transform 0.9s cubic-bezier(.23,1.02,.27,.97);
-    }
-    .fade-in-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* Parallax */
-    .parallax {
-      will-change: transform;
-      transition: transform 0.4s cubic-bezier(.23,1.02,.27,.97);
-    }
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero, .about, .why-us, .contact {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2.2rem;
-      }
-      .hero-logo, .about-img, .why-img, .contact-img {
-        align-self: center;
-      }
-      nav {
-        gap: 1.1rem;
-      }
-    }
-    @media (max-width: 600px) {
-      section {
-        padding: 3.2rem 4vw 2.5rem 4vw;
-      }
-      .hero {
-        text-align: center;
-      }
-      .hero-title {
-        font-size: 1.6rem;
-      }
-      .hero-tagline {
-        font-size: 1rem;
-        padding: 0.9rem;
-      }
-      .section-title {
-        font-size: 1.25rem;
-      }
-      .hero-logo img {
-        width: 140px;
-        max-width: 180px;
-      }
-      .about-img img,
-      .why-img img,
-      .contact-img img {
-        width: 140px;
-      }
-      nav a {
-        font-size: 0.85rem;
-        padding: 0.25rem 0.6rem;
-      }
-      .services-grid {
-        gap: 1.3rem;
-        align-items: center;
-        justify-content: center;
-      }
-      .service-card {
-        padding: 1rem 0.6rem 0.9rem 0.6rem;
-      }
-      .service-card img {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 0.8rem;
-      }
-      .cta-btn {
-        padding: 0.7rem 1.6rem;
-        font-size: 0.95rem;
-      }
-    }
-@media (max-width: 500px) {
-  .hero-logo video {
-    width: 180px !important;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+    .footer{border-top:1px solid var(--kt-border);color:var(--kt-muted)}
 
-  .contact-form select {
-    width: 100%;
-  }
-
-  .menu-toggle {
-    font-size: 2.2rem;
-  }
-
-  #cookieConsent {
-    font-size: 0.9rem;
-    padding: 0.8rem 1rem;
-  }
-}
-</style>
-<style>
-@media (max-width: 768px) {
-  .floating-cta {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    background: #007bff;
-    color: white;
-    padding: 0.9rem 1.2rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    border: none;
-    border-radius: 999px;
-    z-index: 999;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-  }
-}
-</style>
-  <style>
-    #services,
-    #calculator,
-    #managed-it-details,
-    #about,
-    #whyus,
-    #contact {
-      position: relative;
-      z-index: 1;
-      padding: 3rem 2rem;
-      border-radius: 16px;
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     }
 
-    #services::before,
-    #calculator::before,
-    #managed-it-details::before,
-    #about::before,
-    #whyus::before,
-    #contact::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      z-index: -1;
-      border-radius: 16px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
+    /* Cookie banner */
+    #cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:1080;background:#0f1a37;border:1px solid var(--kt-border);color:var(--kt-text);padding:.85rem 1rem;border-radius:12px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    #cookie-banner a{color:var(--kt-accent)}
+
+    /* Floating mobile CTA */
+    .floating-cta{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:1070;display:none}
+    @media (max-width: 767.98px){ .floating-cta{display:block} }
   </style>
-</style>
-  <style>
-    #background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      pointer-events: none;
-    }
-  </style>
-  <!-- Video background style -->
 </head>
-<body>
-  <video autoplay muted loop playsinline id="background-video">
-    <source src="images/Abstract_Animation_Request_Fulfilled.mp4" type="video/mp4">
-  </video>
-  <header>
-    <a href="#" class="logo">
-      <img src="images/favicon.png" alt="Korbies Tech Logo">
-    </a>
-    <button id="menuToggle" aria-label="Toggle menu" class="menu-toggle">&#9776;</button>
-    <nav role="navigation" aria-label="Main Navigation">
-      <a href="#services" aria-label="Jump to Services section">Services</a>
-      <a href="#about" aria-label="Jump to About section">About</a>
-      <a href="#whyus" aria-label="Jump to Why Us section">Why Us</a>
-      <a href="#contact" aria-label="Jump to Contact section">Contact</a>
-      <a href="blog.html" aria-label="Jump to Blog section">Blog</a>
-    </nav>
-  </header>
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content fade-in-on-scroll">
-        <h1 class="hero-title">Local IT Support for Ipswich & Suffolk</h1>
-        <p class="hero-tagline">
-          Korbies Tech delivers robust, secure, and scalable IT services to empower your growth. Experience seamless technology, proactive support, and peace of mind—every day.
-        </p>
-        <a href="#contact" class="cta-btn" aria-label="Book your free consultation">Book Your Free IT Consultation</a>
-        <p class="hero-slogan">Where Complexity Flows to Clarity</p>
+<body data-bs-spy="scroll" data-bs-target="#ktNav" data-bs-offset="90" tabindex="0">
+  <!-- Sticky Nav -->
+  <nav id="ktNav" class="navbar navbar-expand-lg fixed-top py-2">
+    <div class="container">
+      <a class="brand-k" href="#hero" aria-label="Korbies Tech">
+        <span class="logo"><span>K</span></span>
+        <span>Korbies Tech</span>
+      </a>
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#calculator">Clarity Calculator</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-sm btn-accent" href="#contact">Book Your Free IT Consultation</a></li>
+        </ul>
       </div>
-      <div class="hero-logo parallax">
-        <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg" style="width: 180px; max-width: 100%; margin-top: 1rem; margin-bottom: 1rem; border-radius: 22px; filter: drop-shadow(0 4px 16px #23252644); box-shadow: 0 8px 32px 0 rgba(30, 144, 255, 0.12), 0 2px 16px 0 rgba(30,144,255,0.10); background: transparent;">
-          <source src="images/logo_final.mp4" type="video/mp4">
-        </video>
-      </div>
-    <div style="height: 140px;"></div>
-    </section>
+    </div>
+  </nav>
 
-    <section id="services" class="content-box" style="position: relative; z-index: 1; overflow: hidden;">
-      <!-- 🔹 Main content over video -->
-      <div style="position: relative; z-index: 1;">
-        <h2 class="section-title fade-in-on-scroll">Our Services</h2>
-        <div class="services-grid">
-          <div class="service-video-card"
-               style="position: relative; overflow: hidden; border-radius: 18px;
-                      display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
-            <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg"
-                   style="inset: 0; position: absolute; width: 100%; height: 100%;
-                          object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
-              <source src="public/videos/managed.mp4" type="video/mp4">
-            </video>
-            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
-              <img src="images/managed it.png" alt="Managed IT">
-              <div class="service-title">Managed IT</div>
-              <div class="service-desc">Comprehensive managed IT support tailored for UK SMBs. Enjoy predictable costs, reduced downtime, and peace of mind with 24/7 monitoring, expert helpdesk services, proactive maintenance, and cybersecurity—all under one roof.</div>
+  <!-- Hero -->
+  <header id="hero" class="hero">
+    <div class="glow"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <h1 class="mb-3 reveal">Local IT Support for Ipswich &amp; Suffolk</h1>
+          <p class="lead reveal" style="transition-delay:.08s">Korbies Tech delivers robust, secure, and scalable IT services to empower your growth. Experience seamless technology, proactive support, and peace of mind—every day.</p>
+          <div class="d-flex flex-wrap align-items-center gap-3 mt-3 reveal" style="transition-delay:.16s">
+            <a href="#contact" class="btn btn-lg btn-accent">Book Your Free IT Consultation</a>
+            <span class="muted">Where Complexity Flows to Clarity</span>
+          </div>
+          <div class="d-flex gap-4 mt-4 muted reveal" style="transition-delay:.24s">
+            <span><i class="fa-solid fa-headset me-2"></i>UK-based helpdesk</span>
+            <span><i class="fa-solid fa-shield-halved me-2"></i>Security-first</span>
+            <span><i class="fa-solid fa-bolt me-2"></i>Fast response</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Calculator -->
+  <section id="calculator" class="reveal">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-9">
+          <h2 class="section-title">Clarity Calculator</h2>
+          <p class="section-sub mx-auto">Compare the cost of in-house IT vs. Korbies Tech's support tiers. Estimate your savings and discover the right plan for your business—without seeing any pricing upfront.</p>
+        </div>
+      </div>
+      <div class="row mt-4 g-4">
+        <div class="col-lg-7">
+          <div class="kt-card p-4 h-100">
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label">Employees</label>
+                <input id="emp" type="number" min="1" value="25" class="form-control" />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Devices (approx.)</label>
+                <input id="dev" type="number" min="1" value="35" class="form-control" />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Complexity</label>
+                <input id="complex" type="range" min="1" max="5" value="3" class="form-range" />
+                <div class="d-flex justify-content-between muted small"><span>Basic</span><span>Advanced</span></div>
+              </div>
+            </div>
+            <div class="divider my-4"></div>
+            <div class="row g-3 align-items-center">
+              <div class="col-md-6">
+                <div class="p-3 rounded-3" style="background:#0f1a37;border:1px solid var(--kt-border)">
+                  <div class="muted small">Suggested Tier</div>
+                  <div id="tier" class="h4 mb-0">Standard</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 rounded-3" style="background:#0f1a37;border:1px solid var(--kt-border)">
+                  <div class="muted small">Potential Efficiency Gain</div>
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="progress flex-grow-1" role="progressbar" aria-label="efficiency" aria-valuemin="0" aria-valuemax="100">
+                      <div id="effBar" class="progress-bar" style="width:60%"></div>
+                    </div>
+                    <span id="effVal" class="small">60%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <p class="muted small mb-0"><i class="fa-solid fa-circle-info me-2"></i>This preview avoids prices. Get a tailored proposal during your free consultation.</p>
+              </div>
             </div>
           </div>
-          <div class="service-video-card" style="position: relative; overflow: hidden; border-radius: 18px; display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
-            <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg" style="inset: 0; position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
-              <source src="public/videos/backupfinal.mp4" type="video/mp4">
-            </video>
-            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
-              <img src="images/backup.png" alt="Backup & Recovery">
-              <div class="service-title">Backup &amp; Recovery</div>
-              <div class="service-desc">Automated, reliable data backup with rapid recovery to keep your business running—no matter what happens.</div>
+        </div>
+        <div class="col-lg-5">
+          <div class="kt-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="mb-2">Ready for integration</h5>
+              <p class="muted">Drop your preferred pricing logic or API here later. The UI and validation are wired—no refactor required.</p>
             </div>
+            <a href="#contact" class="btn btn-accent btn-lg mt-3 align-self-start"><i class="fa-solid fa-calendar-check me-2"></i>Book a Consultation</a>
           </div>
-          <div class="service-video-card"
-               style="position: relative; overflow: hidden; border-radius: 18px;
-                      display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
-            <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg"
-                   style="inset: 0; position: absolute; width: 100%; height: 100%;
-                          object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
-              <source src="public/videos/email.mp4" type="video/mp4">
-            </video>
-            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
-              <img src="images/email.png" alt="Email Solutions">
-              <div class="service-title">Email Solutions</div>
-              <div class="service-desc">Professional, secure business email setup, migration, and support—powered by leading platforms.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="reveal">
+    <div class="container">
+      <div class="row align-items-end g-3">
+        <div class="col-lg-8">
+          <h2 class="section-title">Managed IT Services</h2>
+          <p class="section-sub">At Korbies Tech, we deliver comprehensive Managed IT Services in the UK designed for small to medium businesses (SMBs). With proactive monitoring, maintenance, and expert IT support, we help you stay secure, productive, and focused on growing your business—while we handle the tech.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <!-- Benefits -->
+        <div class="col-xl-6">
+          <div class="kt-card p-4 h-100">
+            <h5 class="mb-3"><i class="fa-solid fa-list-check me-2"></i>Benefits of Managed IT</h5>
+            <ul class="mb-0" style="columns:2; column-gap:2rem">
+              <li>Cost Predictability: Fixed monthly fees with no surprises</li>
+              <li>Improved Uptime: Proactive monitoring prevents downtime</li>
+              <li>Enhanced Cybersecurity: Antivirus, firewall, and patching included</li>
+              <li>Expert Access: Get certified IT professionals on call</li>
+              <li>Business Focus: We manage IT so you can grow</li>
+              <li>Scalable Support: We grow as your business grows</li>
+              <li>Disaster Recovery: Secure backups &amp; recovery plans included</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Included -->
+        <div class="col-xl-6">
+          <div class="kt-card p-4 h-100">
+            <h5 class="mb-3"><i class="fa-solid fa-box-open me-2"></i>What's Included</h5>
+            <ul class="mb-0">
+              <li><strong>Remote Monitoring &amp; Maintenance:</strong> 24/7 system checks, alerts, and proactive fixes</li>
+              <li><strong>Helpdesk Support:</strong> Fast UK-based support via phone, email, or remote access</li>
+              <li><strong>Security Management:</strong> Endpoint protection, firewall rules, and patching</li>
+              <li><strong>Network &amp; Device Management:</strong> Workstation, server, and network optimization</li>
+              <li><strong>Backup &amp; Recovery:</strong> Cloud and hybrid backups with DR planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service tiles with interactive hovers -->
+      <div class="row g-4 mt-1">
+        <div class="col-md-6 col-lg-4">
+          <div class="kt-card p-4 h-100">
+            <div class="service-icon mb-3"><i class="fa-solid fa-computer"></i></div>
+            <h6 class="fw-bold">Proactive Monitoring</h6>
+            <p class="muted small mb-0">Always-on visibility into endpoints, servers, and networks to prevent issues before they impact your business.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="kt-card p-4 h-100">
+            <div class="service-icon mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+            <h6 class="fw-bold">Security Management</h6>
+            <p class="muted small mb-0">Layered protection including AV/EDR, patching, MFA guidance, and policy hardening across your fleet.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="kt-card p-4 h-100">
+            <div class="service-icon mb-3"><i class="fa-solid fa-phone-volume"></i></div>
+            <h6 class="fw-bold">UK Helpdesk</h6>
+            <p class="muted small mb-0">Friendly, fast support from a local team who understands your business and tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="reveal">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-9 mx-auto">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-sub">Straight answers to help you decide with confidence.</p>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-lg-10 mx-auto">
+          <div class="accordion" id="faqAcc">
+            <div class="accordion-item border-0 mb-3 kt-card">
+              <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Is Managed IT right for my small business?</button></h2>
+              <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body">Yes—our services are tailored for small teams who need expert IT without the overhead.</div></div>
             </div>
-          </div>
-          <div class="service-video-card" style="position: relative; overflow: hidden; border-radius: 18px; display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
-            <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg" style="inset: 0; position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
-              <source src="public/videos/cybersecurity.mp4" type="video/mp4">
-            </video>
-            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
-              <img src="images/cubersecurity.png" alt="Cybersecurity">
-              <div class="service-title">Cybersecurity</div>
-              <div class="service-desc">Advanced protection for your data, devices, and users. Threat prevention, detection, and response tailored for your business.</div>
+            <div class="accordion-item border-0 mb-3 kt-card">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">How fast is your response time?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Most requests are resolved within the hour by our local UK-based helpdesk.</div></div>
             </div>
-          </div>
-          <div class="service-video-card"
-               style="position: relative; overflow: hidden; border-radius: 18px;
-                      display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
-            <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg"
-                   style="inset: 0; position: absolute; width: 100%; height: 100%;
-                          object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
-              <source src="public/videos/digital_cloud_final.mp4" type="video/mp4">
-            </video>
-            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
-              <img src="images/cloudservices.png" alt="Cloud Services">
-              <div class="service-title">Cloud Services</div>
-              <div class="service-desc">Migrate, manage, and optimize your cloud infrastructure for agility, security, and cost-efficiency.</div>
+            <div class="accordion-item border-0 mb-3 kt-card">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Will you work with our current setup?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Absolutely. We support your existing tools and suggest improvements where needed.</div></div>
             </div>
-          </div>
-          <div class="service-video-card" style="position: relative; overflow: hidden; border-radius: 18px; display: flex; flex-direction: column; height: auto; min-height: 100%; box-sizing: border-box;">
-            <video autoplay muted loop playsinline loading="lazy" poster="images/placeholder.jpg" style="inset: 0; position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
-              <source src="public/videos/itconsulting.mp4" type="video/mp4">
-            </video>
-            <div class="service-card" style="position: relative; z-index: 1; height: 100%; box-sizing: border-box;">
-              <img src="images/itconsulting.png" alt="IT Consulting">
-              <div class="service-title">IT Consulting</div>
-              <div class="service-desc">Strategic guidance to align technology with your business goals. Plan, implement, and innovate with confidence.</div>
+            <div class="accordion-item border-0 kt-card">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What about data security?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We include multilayered security—firewalls, AV, patches, and more—to keep your data safe.</div></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="calculator" class="content-box fade-in-on-scroll" style="margin-top: 4rem; position: relative; z-index: 1;">
-      <h2 class="section-title">Clarity Calculator</h2>
-      <p class="section-desc">Compare the cost of in-house IT vs. Korbies Tech’s support tiers. Estimate your savings and discover the right plan for your business—without seeing any pricing upfront.</p>
-      <form id="it-cost-calculator" class="contact-form" style="max-width: 600px; margin-top: 2rem; font-family: 'Inter', sans-serif;">
-        <label for="teamSize">How many users are in your team?</label>
-        <select id="teamSize" name="teamSize" required>
-          <option value="">Select size</option>
-          <option value="3">1–5 users</option>
-          <option value="8">6–10 users</option>
-          <option value="15">11–20 users</option>
-          <option value="25">20+ users</option>
-        </select>
-
-        <label for="internalIT">Do you currently have internal IT staff?</label>
-        <select id="internalIT" name="internalIT" required>
-          <option value="">Select one</option>
-          <option value="none">No internal IT</option>
-          <option value="part">Yes – Part-time</option>
-          <option value="full">Yes – Full-time</option>
-        </select>
-
-        <label for="focus">Top IT concern today:</label>
-        <select id="focus" name="focus" required>
-          <option value="">Select focus</option>
-          <option>Unpredictable IT costs</option>
-          <option>Frequent issues & downtime</option>
-          <option>Security & compliance</option>
-          <option>Looking to scale or modernise</option>
-        </select>
-
-        <button type="button" class="cta-btn" onclick="calculateITCosts()">Estimate My Savings</button>
-
-        <div id="calcResult" style="margin-top: 2rem; font-size: 1.05rem; color: #f5faff;"></div>
-      </form>
-    </section>
-
-    <section id="managed-it-details" class="content-box">
-      <h2 class="section-title fade-in-on-scroll">Managed IT Services</h2>
-      <p class="section-desc">
-        At <strong>Korbies Tech</strong>, we deliver comprehensive Managed IT Services in the UK designed for small to medium businesses (SMBs). With proactive monitoring, maintenance, and expert IT support, we help you stay secure, productive, and focused on growing your business—while we handle the tech.
-      </p>
-
-      <h3 class="section-title" style="font-size: 1.5rem;">Benefits of Managed IT</h3>
-      <ul style="color: #333; font-size: 1.05rem; line-height: 1.7;">
-        <li>Cost Predictability: Fixed monthly fees with no surprises.</li>
-        <li>Improved Uptime: Proactive monitoring prevents downtime.</li>
-        <li>Enhanced Cybersecurity: Antivirus, firewall, and patching included.</li>
-        <li>Expert Access: Get certified IT professionals on call.</li>
-        <li>Business Focus: We manage IT so you can grow.</li>
-        <li>Scalable Support: We grow as your business grows.</li>
-        <li>Disaster Recovery: Secure backups & recovery plans included.</li>
-      </ul>
-
-      <h3 class="section-title" style="font-size: 1.5rem;">What's Included</h3>
-      <ul style="color: #333; font-size: 1.05rem; line-height: 1.7;">
-        <li><strong>Remote Monitoring & Maintenance:</strong> 24/7 system checks, alerts, and proactive fixes.</li>
-        <li><strong>Helpdesk Support:</strong> Fast UK-based support via phone, email, or remote access.</li>
-        <li><strong>Security Management:</strong> Endpoint protection, firewall rules, and patching.</li>
-        <li><strong>Network & Device Management:</strong> Workstation, server, and network optimization.</li>
-        <li><strong>Backup & Recovery:</strong> Cloud and hybrid backups with DR planning.</li>
-      </ul>
-
-      <h3 class="section-title" style="font-size: 1.5rem;">FAQs</h3>
-      <div style="font-size: 1.02rem; color: #333; line-height: 1.6;">
-        <p><strong>Is Managed IT right for my small business?</strong><br>
-        Yes—our services are tailored for small teams who need expert IT without the overhead.</p>
-
-        <p><strong>How fast is your response time?</strong><br>
-        Most requests are resolved within the hour by our local UK-based helpdesk.</p>
-
-        <p><strong>Will you work with our current setup?</strong><br>
-        Absolutely. We support your existing tools and suggest improvements where needed.</p>
-
-        <p><strong>What about data security?</strong><br>
-        We include multilayered security—firewalls, AV, patches, and more—to keep your data safe.</p>
+  <!-- About -->
+  <section id="about" class="reveal">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h2 class="section-title">About Korbies Tech</h2>
+          <p class="section-sub">Korbies Tech is a team of passionate IT professionals dedicated to helping businesses thrive in a digital world. With years of experience and a relentless focus on customer satisfaction, we deliver solutions that are reliable, secure, and tailored to your needs.</p>
+          <div class="kt-card p-4 mt-3">
+            <div class="d-flex align-items-start gap-3">
+              <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <div>
+                <h6 class="fw-bold mb-1">Mission</h6>
+                <p class="mb-0 muted">To simplify technology for our clients—so you can focus on what you do best.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="kt-card p-4 text-center">
+            <i class="fa-solid fa-map-location-dot fa-2x mb-3"></i>
+            <p class="mb-0 muted">Proudly serving <strong>Ipswich &amp; Suffolk</strong> and surrounding areas across the UK.</p>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-    </section>
-
-    <section id="about" class="about content-box" style="position: relative; z-index: 1;">
-      <div class="about-img parallax">
-        <img src="images/about-us.png" alt="About Us">
+  <!-- Why Choose Us -->
+  <section id="why" class="reveal">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-9 mx-auto">
+          <h2 class="section-title">Why Choose Us?</h2>
+          <p class="section-sub">Expertise, reliability, and trust. We combine technical excellence with a personal touch. From fast response times to proactive support and transparent communication, we're committed to your success every step of the way.</p>
+        </div>
       </div>
-      <div class="about-content content-box fade-in-on-scroll">
-        <h2 class="section-title">About Korbies Tech</h2>
-        <p class="section-desc">
-          Korbies Tech is a team of passionate IT professionals dedicated to helping businesses thrive in a digital world. With years of experience and a relentless focus on customer satisfaction, we deliver solutions that are reliable, secure, and tailored to your needs.
-        </p>
-        <p class="section-desc">
-          Our mission: To simplify technology for our clients—so you can focus on what you do best.
-        </p>
+      <div class="row g-4 mt-1">
+        <div class="col-md-6 col-lg-3">
+          <div class="kt-card p-4 h-100 text-center">
+            <i class="fa-solid fa-user-check fa-2x mb-3"></i>
+            <h6 class="fw-bold">Certified Experts</h6>
+            <p class="muted small mb-0">Certified, experienced professionals</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="kt-card p-4 h-100 text-center">
+            <i class="fa-solid fa-tower-broadcast fa-2x mb-3"></i>
+            <h6 class="fw-bold">Always Watching</h6>
+            <p class="muted small mb-0">24/7 monitoring &amp; support</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="kt-card p-4 h-100 text-center">
+            <i class="fa-solid fa-sliders fa-2x mb-3"></i>
+            <h6 class="fw-bold">Tailored Fit</h6>
+            <p class="muted small mb-0">Customized solutions for your business</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="kt-card p-4 h-100 text-center">
+            <i class="fa-solid fa-receipt fa-2x mb-3"></i>
+            <h6 class="fw-bold">Transparent</h6>
+            <p class="muted small mb-0">Clear, honest pricing</p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="why-us content-box" id="whyus">
-      <div class="why-content fade-in-on-scroll">
-        <h2 class="section-title">Why Choose Us?</h2>
-        <p class="section-desc">
-          <strong>Expertise, reliability, and trust.</strong> We combine technical excellence with a personal touch. From fast response times to proactive support and transparent communication, we’re committed to your success every step of the way.
-        </p>
-        <ul style="color:#333; margin-left:1.2em; font-size:1.05rem; line-height:1.7; padding:0;">
-          <li>Certified, experienced professionals</li>
-          <li>24/7 monitoring &amp; support</li>
-          <li>Customized solutions for your business</li>
-          <li>Clear, honest pricing</li>
-        </ul>
+  <!-- Contact -->
+  <section id="contact" class="reveal">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="kt-card p-4 p-md-5">
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <h2 class="section-title mb-2">Get in Touch</h2>
+                <p class="section-sub">Ready to elevate your IT? Contact us today and let's start a conversation.</p>
+                <ul class="list-unstyled mt-3 muted">
+                  <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>Local service area: Ipswich &amp; Suffolk</li>
+                  <li class="mb-2"><i class="fa-solid fa-headset me-2"></i>UK-based helpdesk</li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <form id="contactForm" name="contact" class="needs-validation" novalidate>
+                  <div class="row g-3">
+                    <input type="text" name="website" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="col-md-6">
+                      <label class="form-label">Full Name</label>
+                      <input type="text" class="form-control" required />
+                      <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Company</label>
+                      <input type="text" class="form-control" required />
+                      <div class="invalid-feedback">Please enter your company.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Email</label>
+                      <input type="email" class="form-control" required />
+                      <div class="invalid-feedback">Provide a valid email.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Phone</label>
+                      <input type="tel" class="form-control" />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Service Interest</label>
+                      <select class="form-select" required>
+                        <option value="" selected disabled>Choose...</option>
+                        <option>Managed IT Services</option>
+                        <option>Cybersecurity</option>
+                        <option>Cloud & Email</option>
+                        <option>Backups & DR</option>
+                        <option>General Enquiry</option>
+                      </select>
+                      <div class="invalid-feedback">Please select an option.</div>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">How can we help?</label>
+                      <textarea class="form-control" rows="4" required></textarea>
+                      <div class="invalid-feedback">Please add a short message.</div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="consent" required>
+                        <label class="form-check-label" for="consent">I agree to be contacted about my enquiry.</label>
+                        <div class="invalid-feedback">Consent is required.</div>
+                      </div>
+                    </div>
+                    <div class="col-12 d-grid">
+                      <button class="btn btn-accent btn-lg" type="submit"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+                    </div>
+                    <div id="formAlert" class="col-12 d-none">
+                      <div class="alert alert-success mt-2 mb-0" role="alert">Thanks—your message has been queued. We'll get back to you shortly.</div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="why-img parallax">
-        <img src="images/why-choose-us.png" alt="Why Choose Us">
-      </div>
-    </section>
-    <div style="height: 120px;"></div>
-    <section class="contact content-box" id="contact">
-      <div class="contact-img parallax">
-        <img src="images/contact-us.png" alt="Contact Us">
-      </div>
-      <div class="contact-content fade-in-on-scroll">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="section-desc">
-          Ready to elevate your IT? Contact us today and let’s start a conversation.
-        </p>
-        <form id="contactForm" action="https://formsubmit.co/robi@korbies.uk" method="POST" class="contact-form">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_autoresponse" value="Thank you for contacting Korbies Tech! We'll get back to you soon.">
-          <input type="text" name="_honey" style="display:none">
+    </div>
+  </section>
 
-          <label for="name">Your Name</label>
-          <input type="text" name="name" id="name" placeholder="Your Name" required pattern="[A-Za-z\s]{2,}" title="Please enter a valid name.">
-
-          <label for="email">Your Email</label>
-          <input type="email" name="email" id="email" placeholder="Your Email" required>
-
-          <label for="message">Your Message</label>
-          <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer>
-    &copy; 2025 Korbies Tech. All rights reserved.
-    <p style="font-size: 0.95rem; color: #555; margin-top: 0.5rem;">
-      <em>Where Complexity Flows to Clarity</em>
-    </p>
+  <footer class="footer py-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <span class="muted">© <span id="year"></span> Korbies Tech — Local IT Support for Ipswich &amp; Suffolk · <a class="text-decoration-underline" href="/privacy-policy.html">Privacy</a></span>
+      <a href="#hero" class="btn btn-sm btn-outline-light">Back to top</a>
+    </div>
   </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
   <script>
+    const FORM_ENDPOINT = ""; // Optional: e.g. "https://formsubmit.co/you@example.com"
 
-    // Cache selectors outside scroll functions
-    let fadeEls, serviceCards, parallaxEls, navLinks;
-    // Scroll fade-in for sections and cards
-    function onScrollFadeIn() {
-      fadeEls.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92) {
-          el.classList.add('visible');
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+    }, {threshold:.15});
+    revealEls.forEach(el=>io.observe(el));
+
+    // Navbar active state (ScrollSpy already active via data attributes)
+    const navLinks = document.querySelectorAll('#ktNav .nav-link');
+    navLinks.forEach(link=>{
+      link.addEventListener('click', ()=>{
+        const offcanvas = document.getElementById('navCollapse');
+        if(offcanvas.classList.contains('show')){
+          const bsCollapse = bootstrap.Collapse.getInstance(offcanvas);
+          bsCollapse.hide();
         }
-      });
-      serviceCards.forEach((card, i) => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.93) {
-          setTimeout(() => card.classList.add('fade-in'), i * 80);
-        }
-      });
+      })
+    })
+
+    // Calculator logic (no pricing shown)
+    const emp = document.getElementById('emp');
+    const dev = document.getElementById('dev');
+    const complex = document.getElementById('complex');
+    const tier = document.getElementById('tier');
+    const effBar = document.getElementById('effBar');
+    const effVal = document.getElementById('effVal');
+
+    function updateCalc(){
+      const e = Math.max(1, parseInt(emp.value||1));
+      const d = Math.max(1, parseInt(dev.value||1));
+      const c = Math.max(1, parseInt(complex.value||1));
+      // simple heuristic: load index
+      const load = (e*0.6 + d*0.4) * (0.6 + (c-1)*0.1);
+      let t = 'Basic';
+      if(load > 60 && load <= 140) t = 'Standard';
+      else if(load > 140) t = 'Advanced';
+      const eff = Math.max(20, Math.min(90, 110 - c*10 + Math.log(e+d)*10));
+      tier.textContent = t;
+      effBar.style.width = eff + '%';
+      effVal.textContent = Math.round(eff) + '%';
     }
-    // Parallax for images
-    function onScrollParallax() {
-      parallaxEls.forEach(img => {
-        const rect = img.getBoundingClientRect();
-        const winH = window.innerHeight;
-        if(rect.top < winH && rect.bottom > 0) {
-          // Amount between -1 and 1
-          const rel = (rect.top + rect.height/2 - winH/2) / winH;
-          img.style.transform = `translateY(${rel * 24}px)`;
-        }
-      });
-    }
-    // Highlight nav with cached navLinks
-    function highlightNav() {
-      let found = false;
-      navLinks.forEach(link => link.classList.remove('active'));
-      ['#services', '#about', '#whyus', '#contact'].forEach((id, idx) => {
-        const sec = document.querySelector(id);
-        if (sec) {
-          const rect = sec.getBoundingClientRect();
-          if (!found && rect.top < window.innerHeight * 0.4 && rect.bottom > 60) {
-            navLinks[idx].classList.add('active');
-            found = true;
-          }
-        }
-      });
-    }
-    // DOMContentLoaded setup
-    document.addEventListener('DOMContentLoaded', () => {
-      // Set background video playback rate
-      const bgVideo = document.getElementById('background-video');
-      if (bgVideo) {
-        bgVideo.playbackRate = 1;
-      }
-      // Cache DOM selectors
-      fadeEls = document.querySelectorAll('.fade-in-on-scroll');
-      serviceCards = document.querySelectorAll('.service-card');
-      parallaxEls = document.querySelectorAll('.parallax');
-      navLinks = document.querySelectorAll('nav a');
-      // Smooth scroll for nav
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if (href.startsWith('#')) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-              window.scrollTo({
-                top: target.offsetTop - document.querySelector('header').offsetHeight + 1,
-                behavior: 'smooth'
-              });
-              // Close menu on mobile
-              document.querySelector('nav').classList.remove('show');
-            }
-          }
-        });
-      });
-      // Hamburger menu toggle for mobile
-      const toggleBtn = document.getElementById('menuToggle');
-      const navMenu = document.querySelector('nav');
-      toggleBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-      });
-      // Initial trigger
-      onScrollFadeIn();
-      onScrollParallax();
-      highlightNav();
-    });
-    // Throttle scroll events with requestAnimationFrame
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          onScrollFadeIn();
-          onScrollParallax();
-          highlightNav();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-    window.addEventListener('resize', onScrollParallax);
+    [emp,dev,complex].forEach(i=>i.addEventListener('input', updateCalc));
+    updateCalc();
 
-    function calculateITCosts() {
-      const size = parseInt(document.getElementById('teamSize').value);
-      const internalIT = document.getElementById('internalIT').value;
-      const resultDiv = document.getElementById('calcResult');
-
-      if (!size || !internalIT) {
-        resultDiv.innerHTML = "<p>Please complete all fields to estimate savings.</p>";
-        return;
-      }
-
-      const salary = internalIT === 'full' ? 28500 : internalIT === 'part' ? 14500 : 0;
-      const korbiesEstimate = size * 55 * 12;
-      const diff = salary - korbiesEstimate;
-
-      let message = `<p>With a team of ${size},`;
-
-      if (internalIT === 'none') {
-        message += ` you're currently not spending on internal IT.</p>`;
-        message += `<p>Partnering with Korbies Tech could provide enterprise-grade IT support from just <strong>£${korbiesEstimate.toLocaleString()}</strong> per year—covering monitoring, security, helpdesk and more.</p>`;
-      } else {
-        message += ` you're likely spending <strong>£${salary.toLocaleString()}</strong> annually on internal IT.</p>`;
-        message += `<p>Outsourcing to Korbies Tech's support tier could save you <strong>up to £${Math.max(0, diff).toLocaleString()}</strong> per year—plus gain access to 24/7 monitoring, cybersecurity, and more.</p>`;
-      }
-
-      message += `<p><em>Want to tailor your support? <a href="#contact" style="color:#ffffff; font-weight:600; text-decoration:underline;">Book a free consultation</a>.</em></p>`;
-      resultDiv.innerHTML = message;
-    }
-  </script>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          btn.textContent = "Thanks for submitting!";
-          form.reset();
+    // Contact form validation (Bootstrap)
+    (()=>{
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e)=>{
+        if(!form.checkValidity()){
+          e.preventDefault();
+          e.stopPropagation();
         } else {
-          btn.textContent = "Error. Try again.";
-          btn.disabled = false;
+          e.preventDefault();
+          document.getElementById('formAlert').classList.remove('d-none');
+          form.reset();
+          form.classList.remove('was-validated');
+          updateCalc();
         }
-      }).catch(() => {
-        btn.textContent = "Network error.";
-        btn.disabled = false;
-      });
-    });
-  </script>
-  <div id="cookieConsent" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(30, 30, 60, 0.85); color: #f5faff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; z-index: 9999; font-family: 'Inter', sans-serif; backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1); box-shadow: 0 -2px 16px rgba(0,0,0,0.25);">
-    <span>We use cookies to enhance your experience. <a href="https://msp.korbies.uk/privacy-policy.html" target="_blank" rel="noopener noreferrer" style="color: #1e90ff; text-decoration: underline;">Learn more</a></span>
-    <button id="acceptCookies" style="margin-left: 1rem; background: #1e90ff; border: none; padding: 0.6rem 1.4rem; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif;">Accept</button>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const consent = localStorage.getItem('cookieConsent');
-      const banner = document.getElementById('cookieConsent');
-      const acceptBtn = document.getElementById('acceptCookies');
+        form.classList.add('was-validated');
+      }, false);
+    })();
 
-      if (!consent) {
-        banner.style.display = 'flex';
-      } else {
-        banner.style.display = 'none';
+    // Cookie banner logic
+    (function(){
+      const KEY = 'cookieConsent';
+      const banner = document.getElementById('cookie-banner');
+      const accept = document.getElementById('cookie-accept');
+      if(banner && !localStorage.getItem(KEY)){
+        banner.classList.remove('d-none');
       }
+      if(accept){
+        accept.addEventListener('click', ()=>{ localStorage.setItem(KEY,'accepted'); banner.remove(); });
+      }
+    })();
 
-      acceptBtn.addEventListener('click', function () {
-        localStorage.setItem('cookieConsent', 'accepted');
-        banner.style.display = 'none';
-      });
-    });
+    // Optional: Post form to external endpoint if configured
+    (function(){
+      const form = document.getElementById('contactForm');
+      if(!form) return;
+      form.addEventListener('submit', async (e)=>{
+        if(!form.checkValidity()) return; // handled by existing validator
+        if(!FORM_ENDPOINT) return; // keep current behaviour if not configured
+        e.preventDefault();
+        try{
+          const data = new FormData(form);
+          // simple honeypot check
+          if(data.get('website')) return;
+          const res = await fetch(FORM_ENDPOINT, { method:'POST', body: data });
+          if(!res.ok) throw new Error('Network error');
+          document.getElementById('formAlert').classList.remove('d-none');
+          form.reset();
+          form.classList.remove('was-validated');
+          updateCalc();
+        }catch(err){
+          alert('Sorry, there was an error sending your message. Please try again later.');
+          console.error(err);
+        }
+      }, { capture: true });
+    })();
   </script>
 </body>
-  <button class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
-    Book Free Call
-  </button>
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="d-none" role="region" aria-label="Cookie notice">
+    <span>We use cookies to enhance your experience. <a href="/privacy-policy.html">Learn more</a></span>
+    <button id="cookie-accept" class="btn btn-sm btn-light">Accept</button>
+  </div>
+
+  <!-- Floating CTA (mobile only) -->
+  <div class="floating-cta">
+    <a href="#contact" class="btn btn-accent btn-lg w-100 shadow"><i class="fa-solid fa-calendar-check me-2"></i>Book Your Free IT Consultation</a>
+  </div>
 </html>
