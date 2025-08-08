@@ -425,31 +425,34 @@
                 </ul>
               </div>
               <div class="col-lg-6">
-                <form id="contactForm" name="contact" class="needs-validation" novalidate>
+                <form id="contactForm" name="contact" action="https://formsubmit.co/robi@korbies.uk" method="POST" class="needs-validation" novalidate>
                   <div class="row g-3">
                     <input type="text" name="website" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_autoresponse" value="Thank you for contacting Korbies Tech! We'll get back to you soon.">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="col-md-6">
                       <label class="form-label">Full Name</label>
-                      <input type="text" class="form-control" required />
+                      <input type="text" name="name" class="form-control" required />
                       <div class="invalid-feedback">Please enter your name.</div>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label">Company</label>
-                      <input type="text" class="form-control" required />
+                      <input type="text" name="company" class="form-control" required />
                       <div class="invalid-feedback">Please enter your company.</div>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label">Email</label>
-                      <input type="email" class="form-control" required />
+                      <input type="email" name="email" class="form-control" required />
                       <div class="invalid-feedback">Provide a valid email.</div>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label">Phone</label>
-                      <input type="tel" class="form-control" />
+                      <input type="tel" name="phone" class="form-control" />
                     </div>
                     <div class="col-12">
                       <label class="form-label">Service Interest</label>
-                      <select class="form-select" required>
+                      <select name="interest" class="form-select" required>
                         <option value="" selected disabled>Choose...</option>
                         <option>Managed IT Services</option>
                         <option>Cybersecurity</option>
@@ -461,12 +464,12 @@
                     </div>
                     <div class="col-12">
                       <label class="form-label">How can we help?</label>
-                      <textarea class="form-control" rows="4" required></textarea>
+                      <textarea name="message" class="form-control" rows="4" required></textarea>
                       <div class="invalid-feedback">Please add a short message.</div>
                     </div>
                     <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="consent" required>
+                        <input class="form-check-input" type="checkbox" id="consent" name="consent" value="yes" required>
                         <label class="form-check-label" for="consent">I agree to be contacted about my enquiry.</label>
                         <div class="invalid-feedback">Consent is required.</div>
                       </div>
@@ -570,12 +573,10 @@
       const KEY = 'cookieConsent';
       const banner = document.getElementById('cookie-banner');
       const accept = document.getElementById('cookie-accept');
-      if(banner && !localStorage.getItem(KEY)){
-        banner.classList.remove('d-none');
-      }
-      if(accept){
-        accept.addEventListener('click', ()=>{ localStorage.setItem(KEY,'accepted'); banner.remove(); });
-      }
+      const show = ()=>{ if(banner){ banner.classList.remove('d-none'); document.body.classList.add('has-cookie'); } };
+      const hide = ()=>{ if(banner){ banner.remove(); document.body.classList.remove('has-cookie'); } };
+      if(banner && !localStorage.getItem(KEY)) show();
+      if(accept){ accept.addEventListener('click', ()=>{ localStorage.setItem(KEY,'accepted'); hide(); }); }
     })();
 
     // Optional: Post form to external endpoint if configured
@@ -583,32 +584,36 @@
       const form = document.getElementById('contactForm');
       if(!form) return;
       form.addEventListener('submit', async (e)=>{
-        if(!form.checkValidity()) return; // handled by existing validator
-        if(!FORM_ENDPOINT) return; // keep current behaviour if not configured
+        if(!form.checkValidity()) return; // handled by Bootstrap validator above
         e.preventDefault();
         try{
           const data = new FormData(form);
-          // simple honeypot check
-          if(data.get('website')) return;
-          const res = await fetch(FORM_ENDPOINT, { method:'POST', body: data });
+          // honeypots
+          if(data.get('website') || data.get('_honey')) return;
+          const btn = form.querySelector('button[type="submit"]');
+          if(btn){ btn.disabled = true; btn.innerText = 'Sending...'; }
+          const res = await fetch(form.action, { method:'POST', body: data, headers:{ 'Accept':'application/json' } });
           if(!res.ok) throw new Error('Network error');
           document.getElementById('formAlert').classList.remove('d-none');
           form.reset();
           form.classList.remove('was-validated');
+          if(btn){ btn.disabled = false; btn.innerText = 'Send Message'; }
           updateCalc();
         }catch(err){
           alert('Sorry, there was an error sending your message. Please try again later.');
           console.error(err);
+          const btn = form.querySelector('button[type="submit"]');
+          if(btn){ btn.disabled = false; btn.innerText = 'Send Message'; }
         }
       }, { capture: true });
     })();
   </script>
-</body>
   <!-- Cookie Banner -->
   <div id="cookie-banner" class="d-none" role="region" aria-label="Cookie notice">
     <span>We use cookies to enhance your experience. <a href="/privacy-policy.html">Learn more</a></span>
     <button id="cookie-accept" class="btn btn-sm btn-light">Accept</button>
   </div>
+</body>
 
   <!-- Floating CTA (mobile only) -->
   <div class="floating-cta">
